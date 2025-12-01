@@ -13,92 +13,113 @@
     />
   </head>
   <body>
-    <main>
-      <!-- navbar -->
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid mx-3">
-          <a class="navbar-brand" href="index.html">
-            <img src="media files/logo.png" alt="Logo" class="navbar-logo" />
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="home.html"
-                  >Home</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="about.html"
-                  >About</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="contact.html"
-                  >Contact</a
-                >
-              </li>
-            </ul>
-          </div>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid mx-3">
+        <a class="navbar-brand" href="index.html">
+          <img src="media files/logo.png" alt="Logo" class="navbar-logo" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="home.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="about.html"
+                >About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="contact.html"
+                >Contact</a
+              >
+            </li>
+          </ul>
         </div>
-      </nav>
+      </div>
+    </nav>
+    <main class="homeBg">
       <!-- header -->
-      <div class="px-4 py-5 my-5 text-center">
+      <div class="px-4 pt-5 text-center">
         <h1 class="display-5 fw-bold text-body-emphasis">
-          Welcome to AI Recipe Generator
+          Welcome to Kusina Buddy your AI Recipe Generator
         </h1>
         <p class="display-6 text-body-emphasis">What are you cooking today?</p>
       </div>
-      <!-- generator -->
-      <div class="container d-flex justify-content-center align-items-center">
-        <div class="bordered-box">
-          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn btn-outline-secondary me-md-2" type="button">
-              Generate
-            </button>
-            <button class="btn btn-outline-secondary" type="button">
-              Reset
-            </button>
-          </div>
-          <form
-            class="row-cols-auto my-3 mx-auto"
-            style="display: flex; align-items: center"
-          >
-            <div class="col-12 mx-auto">
-              <input
-                type="text"
-                class="form-control"
-                id="generateBox"
-                placeholder="Type here"
+
+      <!-- logo and form -->
+      <div class="row d-flex pb-5 mx-5">
+        <div
+          class="col-lg-6 col-md-6 col-sm-12 d-flex flex-column justify-content-center align-items-center"
+        >
+          <div>
+            <!-- Logo -->
+            <a class="navbar-brand" href="index.html">
+              <img
+                src="media files/logo.png"
+                alt="Logo"
+                width="100%"
+                height="100%"
               />
+            </a>
+          </div>
+        </div>
+
+        <!-- Generator -->
+        <div
+          class="col-lg-6 col-md-6 col-sm-12 d-flex flex-column justify-content-center align-items-center mx-auto"
+        >
+          <div class="container">
+            <div class="bordered-box py-5">
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-outline-success me-md-2" type="button">
+                  Generate
+                </button>
+                <button class="btn btn-outline-success" type="button">
+                  Reset
+                </button>
+              </div>
+              <form
+                class="row-cols-auto my-3 mx-auto"
+                style="display: flex; align-items: center"
+              >
+                <div class="col-12 mx-auto">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="generateBox"
+                    placeholder="Type here"
+                  />
+                </div>
+              </form>
+              <div class="d-flex col-12 mx-auto mb-3" style="height: 50%">
+                <textarea
+                  class="form-control flex-grow-1"
+                  id="FormControlTextarea1"
+                ></textarea>
+              </div>
             </div>
-          </form>
-          <div class="d-flex col-12 mx-auto mb-3" style="height: 50%">
-            <textarea
-              class="form-control flex-grow-1"
-              id="FormControlTextarea1"
-            ></textarea>
           </div>
         </div>
       </div>
     </main>
 
-    <footer class="container footer mt-5">
+    <footer class="container footer my-3">
       <p>&copy; 2025 Kusina Buddy &middot;</p>
-      <p><a href="#">Back to top</a></p>
+      <p><a href="#" class="text-muted text-decoration-none">Back to top</a></p>
     </footer>
 
     <script
