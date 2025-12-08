@@ -12,7 +12,7 @@ document.getElementById("form").addEventListener("submit", function (event) {
   emailjs.sendForm(serviceID, templateID, this).then(
     () => {
       btn.value = "Send Email";
-      alert("Sent!");
+      alert("Your message has been sent successfully!");
     },
     (err) => {
       btn.value = "Send Email";
