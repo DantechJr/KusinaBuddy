@@ -1,0 +1,202 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  min-height: 100%;
+}
+
+/* Background sections */
+.landingBg,
+.homeBg,
+.contactBg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
+.landingBg {
+  background-image: url("/static/media_files/bg.jpg");
+}
+
+.homeBg {
+  background-image: url("/static/media_files/bg10.jpg");
+  object-fit: cover;
+}
+
+.contactBg {
+  background-image: url("/static/media_files/bg7.jpg");
+  object-fit: cover;
+}
+
+/* Contact form */
+.contactForm {
+  background-color: rgba(0, 0, 0, 0.751);
+  color: white;
+}
+
+/* Logo styling */
+.navbar-logo {
+  max-height: 80px;
+  width: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.landingLogo {
+  background-color: rgba(0, 0, 0, 0.751);
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Floating buttons */
+.notepadBtn,
+.calculatorBtn {
+  position: fixed;
+  left: 20px;
+  z-index: 1500;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: #f8f9fa;
+  border: 1px solid #ccc;
+}
+
+.notepadBtn {
+  bottom: 60px;
+}
+
+.calculatorBtn {
+  bottom: 110px;
+}
+
+/* Form fields */
+.bordered-box {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.751);
+}
+
+.field {
+  margin-bottom: 10px;
+}
+
+.field label {
+  display: block;
+  font-size: 12px;
+  color: #777;
+}
+
+.field input {
+  display: block;
+  min-width: 250px;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+/* Carousel */
+.carousel {
+  margin-bottom: 4rem;
+}
+
+.carousel-caption {
+  bottom: 3rem;
+  z-index: 10;
+}
+
+.carousel-item {
+  height: 32rem;
+}
+
+/* Marketing section */
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.marketing .col-lg-4 p {
+  margin-right: 0.75rem;
+  margin-left: 0.75rem;
+}
+
+/* Featurettes */
+.featurette-divider {
+  margin: 5rem 0;
+}
+
+.featurette-heading {
+  letter-spacing: -0.05rem;
+}
+
+/* Responsive typography */
+@media (min-width: 40em) {
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 7rem;
+  }
+}
+
+/* Navbar height adjustments */
+@media (min-width: 992px) {
+  .navbar {
+    height: 70px;
+  }
+
+  .navbar-logo {
+    max-height: 60px;
+  }
+}
+
+@media (max-width: 991px) and (min-width: 577px), (max-width: 576px) {
+  .navbar-logo {
+    max-height: 60px;
+  }
+    /* Temporary alert messages with fade-in/out */
+.alert {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  margin: 10px 0;
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* When alert is shown */
+.alert.show {
+  opacity: 1;
+    }
+}
