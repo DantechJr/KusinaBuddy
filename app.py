@@ -87,9 +87,9 @@ if __name__ == "__main__":
     app.run(debug=True)
 
 # Serve root-level CSS because contact.html references href="style.css"
-@app.route("/style.css")
-def style_root():
-    return send_from_directory(app.static_folder, "../static/style.css")
+# @app.route("/style.css")
+# def style_root():
+#     return send_from_directory(app.static_folder, "../static/style.css")
 
 # Generate recipe (ingredient or dish name only)
 @app.route("/generate", methods=["POST"])
