@@ -79,11 +79,7 @@ def generate():
 
     try:
         response = gemini_model.generate_content(
-<<<<<<< HEAD
-            f"Create a clear, step-by-step recipe using: {query}.\n"
-=======
             f"Create a clear, step-by-step Filipino food recipe using: {query}.\n"
->>>>>>> 8e36e8dcf1ab53444d2833dec5705f76060ff0b7
             "Include: title, ingredients with quantities and price per ingredients, instructions,  , "
             "estimated time, servings (numbered), total price per batch, and calorie counter."
         )
@@ -139,25 +135,7 @@ def weekplan():
     except Exception as e:
         return jsonify({"plan": f"❌ Error generating weekly plan: {str(e)}"})
 
-# Contact form submission (AJAX)
-@app.route("/submit_contact", methods=["POST"])
-def submit_contact():
-    if request.is_json:
-        data = request.get_json()
-        from_name = data.get("from_name", "").strip()
-        email_id = data.get("email_id", "").strip()
-        message = data.get("message", "").strip()
 
-        if not from_name or not email_id or not message:
-            return jsonify({"status": "error", "message": "All fields are required."}), 400
-
-        print(f"📩 New message from {from_name} ({email_id}): {message}")
-
-        return jsonify({"status": "ok", "message": "Your message has been sent successfully!"}), 200
-
-    return jsonify({"status": "error", "message": "Invalid request format."}), 400
-
-# Optional: quick health check
 @app.route("/health")
 def health():
     try:
