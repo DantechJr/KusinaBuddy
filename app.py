@@ -51,8 +51,28 @@ def pick_model():
 gemini_model = pick_model()
 
 # Routes
+# @app.route("/")
+# def index():
+#     return render_template("../templates/index.html")
+
+# @app.route("/home")
+# def index():
+#     return render_template("../templates/home.html")
+
+# @app.route("/about")
+# def about():
+#     return render_template("../templates/about.html")
+
+# @app.route("/contact")
+# def contact():
+#     return render_template("../templates/contact.html")
+
 @app.route("/")
 def index():
+    return render_template("index.html")
+
+@app.route("/home")
+def home():
     return render_template("home.html")
 
 @app.route("/about")
@@ -63,10 +83,13 @@ def about():
 def contact():
     return render_template("contact.html")
 
+if __name__ == "__main__":
+    app.run(debug=True)
+
 # Serve root-level CSS because contact.html references href="style.css"
 @app.route("/style.css")
 def style_root():
-    return send_from_directory(app.static_folder, "style.css")
+    return send_from_directory(app.static_folder, "../static/style.css")
 
 # Generate recipe (ingredient or dish name only)
 @app.route("/generate", methods=["POST"])
