@@ -79,7 +79,11 @@ def generate():
 
     try:
         response = gemini_model.generate_content(
+<<<<<<< HEAD
             f"Create a clear, step-by-step recipe using: {query}.\n"
+=======
+            f"Create a clear, step-by-step Filipino food recipe using: {query}.\n"
+>>>>>>> 8e36e8dcf1ab53444d2833dec5705f76060ff0b7
             "Include: title, ingredients with quantities and price per ingredients, instructions,  , "
             "estimated time, servings (numbered), total price per batch, and calorie counter."
         )
