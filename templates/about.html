@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>NITP Capstone</title>
-    <!-- <link rel="stylesheet" href="../static/style.css" /> -->
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='style.css') }}"
@@ -69,10 +68,66 @@
         </div>
       </div>
     </nav>
+
     <!-- main content -->
     <main>
+      <div class="aboutPage mb-5">
+        <div class="text-center p-5">
+          <h1>Welcome to Kusina Buddy</h1>
+          <h4>your simple, smart, and reliable cooking companion.</h4>
+        </div>
+        <div class="row p-5 bg-body-tertiary rounded-3">
+          <div
+            class="col-md-4 d-flex flex-column justify-content-center align-items-center"
+          >
+            <img
+              src="{{ url_for('static', filename='media files/aboutRobo.jpg') }}"
+              alt=""
+              style="background-size: contain"
+              width="80%"
+              height="80%"
+            />
+          </div>
+          <div
+            class="col-md-8 d-flex flex-column justify-content-center align-items-center"
+          >
+            <div>
+              <p>
+                Kusina Buddy was created to make everyday meal planning easier
+                for everyone. We know how stressful it can be to think about
+                what to cook, especially when time and ingredients are limited.
+                That’s why we built an AI-powered tool that helps you generate
+                recipes based on what you already have, plan meals for the week,
+                and stay organized with built-in tools like a calculator and
+                notepad.
+              </p>
+            </div>
+            <div>
+              <p>
+                Behind this project is Infinite Loop Thinkers, a group of NIT
+                Batch 5 learners. While we come from different skill levels and
+                backgrounds, we share a common goal: to learn, grow, and create
+                practical, user-friendly tech solutions. Through the program, we
+                gained skills in Python and web technologies, allowing us to
+                combine creativity and technology to solve real problems in
+                simple, meaningful ways.
+              </p>
+            </div>
+            <div>
+              <p>
+                Kusina Buddy is our step toward making cooking more enjoyable,
+                reducing food waste, and helping home cooks—from beginners to
+                busy parents—feel more confident in the kitchen. Thank you for
+                using Kusina Buddy. We hope it makes your cooking experience
+                lighter, smarter, and more fun!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Hero section -->
-      <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+      <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button
             type="button"
@@ -205,14 +260,11 @@
               and savory flavors.
             </p>
           </div>
-          <div class="col-md-6">
+          <div class="feature-img col-md-6">
             <img
-              class="mx-auto"
+              class="mx-auto img-fluid d-block mx-auto feature-img"
               src="../static/media files/bg5.jpg"
               alt=""
-              height="500"
-              width="500"
-              style="object-fit: cover"
             />
           </div>
         </div>
@@ -232,14 +284,11 @@
             </p>
           </div>
           <div class="col-md-6 order-md-1">
-            <div class="col-md-5">
+            <div class="feature-img col-md-5">
               <img
-                class="mx-auto"
+                class="mx-auto img-fluid d-block mx-auto feature-img"
                 src="../static/media files/bg4.jpg"
                 alt=""
-                height="500"
-                width="500"
-                style="object-fit: cover"
               />
             </div>
           </div>
@@ -258,14 +307,11 @@
               staple, served with every meal.
             </p>
           </div>
-          <div class="col-md-5">
+          <div class="feature-img col-md-5">
             <img
-              class="mx-auto"
+              class="mx-auto img-fluid d-block mx-auto feature-img"
               src="../static/media files/bg6.jpg"
               alt=""
-              height="500"
-              width="500"
-              style="object-fit: cover"
             />
           </div>
         </div>

@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>NITP Capstone</title>
-    <!-- <link rel="stylesheet" href="../static/style.css" /> -->
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='style.css') }}"
@@ -75,9 +74,11 @@
       <!------------------------ header --------------------->
       <div class="px-4 pt-5 text-center">
         <h1 class="display-5 fw-bold text-body-emphasis">
-          Welcome to Kusina Buddy your AI Recipe Generator
+          Welcome to Kusina Buddy
         </h1>
-        <p class="display-6 text-body-emphasis">What are you cooking today?</p>
+        <p class="display-6 text-body-emphasis">
+          Cook Smarter With AI. Use What You Have
+        </p>
       </div>
 
       <!-------------------------- logo and Generator form --------------------->
@@ -85,14 +86,29 @@
         <div
           class="col-lg-6 col-md-6 col-sm-12 d-flex flex-column justify-content-center align-items-center"
         >
-          <div>
-            <!---------------- Logo ------------------->
-            <img
-              src="{{ url_for('static', filename='media files/logo.png') }}"
-              alt="Logo"
-              width="100%"
-              height="100%"
-            />
+          <!---------------- Logo ------------------->
+          <div class="row">
+            <div
+              class="col-lg-6 col-md-6 col-sm-12 d-flex flex-column justify-content-center align-items-center"
+            >
+              <img
+                src="{{ url_for('static', filename='media files/iconRobo.png') }}"
+                alt="Logo"
+                width="100%"
+                height="100%"
+              />
+            </div>
+            <div
+              class="col-lg-6 col-md-6 col-sm-12 d-flex flex-column justify-content-center align-items-center"
+            >
+              <h2 class="display-5 fw-bold text-body-emphasis">
+                What are you cooking today?
+              </h2>
+              <p class="text-body-emphasis fs-5">
+                Input your ingredients and let Kusina Buddy create a recipe
+                instantly
+              </p>
+            </div>
           </div>
         </div>
 
