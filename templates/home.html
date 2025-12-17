@@ -96,6 +96,7 @@
                 alt="Logo"
                 width="100%"
                 height="100%"
+                style="object-fit: cover"
               />
             </div>
             <div
@@ -142,9 +143,9 @@
                   />
                 </div>
               </form>
-              <div class="d-flex col-12 mx-auto mb-3" style="height: 50%">
+              <div class="d-flex col-12 mx-auto mb-3">
                 <textarea
-                  class="form-control flex-grow-1"
+                  class="form-control flex-grow-1 gentextArea"
                   id="FormControlTextarea1"
                 ></textarea>
               </div>
@@ -153,32 +154,85 @@
         </div>
       </div>
 
-      <!-------------------- modal buttons for notepad and calculator ------------------------>
+      <!-------------------- modal buttons for notepad and calculator and store finder------------------------>
 
       <div class="modals">
+        <!------------------ Button trigger modal for Store Finder -------------------->
+        <div class="">
+          <button
+            type="button"
+            class="btn storeFinderBtn"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop0"
+          >
+            <img
+              src="{{ url_for('static', filename='media files/location.gif') }}"
+              alt=""
+              height="90"
+              width="90"
+              style="object-fit: contain"
+            />
+          </button>
+
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="staticBackdrop0"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabindex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                    Store Finder
+                  </h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body mx-2 text-center">
+                  <div class="container mx-auto">
+                    <img
+                      src="{{ url_for('static', filename='media files/storeFinder.gif') }}"
+                      alt=""
+                      height="250"
+                      width="250"
+                      style="object-fit: cover"
+                    />
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <div class="controls">
+                    <button class="btn btn-secondary">New</button>
+                    <button class="btn btn-outline-success">Find</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!------------------ Button trigger modal for notepad -------------------->
         <div class="container">
           <button
             type="button"
-            class="btn btn-outline-dark notepadBtn"
+            class="btn notepadBtn"
             data-bs-toggle="modal"
             data-bs-target="#staticBackdrop1"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-card-checklist"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"
-              />
-              <path
-                d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0M7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0"
-              />
-            </svg>
+            <img
+              src="{{ url_for('static', filename='media files/Note.gif') }}"
+              alt=""
+              height="110"
+              width="90"
+            />
           </button>
 
           <!-- Modal -->
@@ -237,28 +291,19 @@
         </div>
 
         <!------------------ Button trigger modal for calculator ----------------->
-        <div class="container">
+        <div class="">
           <button
             type="button"
-            class="btn btn-outline-dark calculatorBtn"
+            class="btn calculatorBtn"
             data-bs-toggle="modal"
             data-bs-target="#staticBackdrop2"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-calculator"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"
-              />
-              <path
-                d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"
-              />
-            </svg>
+            <img
+              src="{{ url_for('static', filename='media files/calculator.gif') }}"
+              alt=""
+              height="90"
+              width="90"
+            />
           </button>
 
           <!-- Modal -->
@@ -342,10 +387,22 @@
     <!------------------- Footer -------------------->
     <footer class="footer mx-3 my-3">
       <p>&copy; 2025 Kusina Buddy &middot;</p>
-      <p><a href="#" class="text-muted text-decoration-none">Back to top</a></p>
+      <a href="#">
+        <img
+          src="../static/media files/up.gif"
+          alt=""
+          height="40"
+          width="40"
+          style="object-fit: contain"
+        />
+      </a>
     </footer>
 
+    <script
+      src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js"
+      type="module"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../static/index.js"></script>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
   </body>
 </html>

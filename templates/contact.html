@@ -205,7 +205,15 @@
 
     <footer class="footer mx-3 my-3">
       <p>&copy; 2025 Kusina Buddy &middot;</p>
-      <p><a href="#" class="text-muted text-decoration-none">Back to top</a></p>
+      <a href="#"
+        ><img
+          src="{{ url_for('static', filename='media files/up.gif') }}"
+          alt=""
+          height="40"
+          width="40"
+          style="object-fit: contain"
+        />
+      </a>
     </footer>
 
     <script
@@ -218,6 +226,6 @@
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../static/index.js"></script>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
   </body>
 </html>

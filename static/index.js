@@ -1,99 +1,118 @@
-// ------------------------------------- Generator Form Script Start -----------------------------------//
 document.addEventListener("DOMContentLoaded", () => {
   const generateBtn = document.querySelector(
     ".btn.btn-outline-success.me-md-2"
   );
+
   const weekPlanBtn = document.querySelector(
     ".btn.btn-outline-success:nth-child(2)"
   );
+
   const resetBtn = document.querySelector(
     ".btn.btn-outline-success:nth-child(3)"
   );
+
   const inputBox = document.getElementById("generateBox");
   const outputArea = document.getElementById("FormControlTextarea1");
 
+  // 🔒 If required elements are missing, stop safely
+  if (!generateBtn || !inputBox || !outputArea) {
+    return;
+  }
+
   // Generate Recipe
- generateBtn.addEventListener("click", async () => {
-      const query = inputBox.value.trim();
-      if (!query) {
-        outputArea.value = "⚠️ Please type an ingredient or dish first!";
-        return;
-      }
+  generateBtn.addEventListener("click", async () => {
+    const query = inputBox.value.trim();
 
-      try {
-        const response = await fetch("/generate", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ query }),
-        });
-        const data = await response.json();
-        outputArea.value = data.result;
-      } catch (error) {
-        outputArea.value = "❌ Error generating recipe. Please try again.";
-      }
-    });
-
-    // Trigger on Enter key
-    inputBox.addEventListener("keydown", (event) => {
-      if (event.key === "Enter") {
-        event.preventDefault();   // stop page refresh
-        generateBtn.click();      // reuse the button logic
-      }
-    });
-
-
-  // Week Plan (ingredient-based)
-  weekPlanBtn.addEventListener("click", async () => {
-    const ingredients = inputBox.value.trim();
-    if (!ingredients) {
-      outputArea.value = "⚠️ Please type some ingredients for the weekly plan!";
+    if (!query) {
+      outputArea.value = "⚠️ Please type an ingredient or dish first!";
       return;
     }
 
     try {
-      const response = await fetch("/weekplan", {
+      const response = await fetch("/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ingredients }),
+        body: JSON.stringify({ query }),
       });
+
       const data = await response.json();
-      outputArea.value = data.plan;
+      outputArea.value = data.result;
     } catch (error) {
-      outputArea.value = "❌ Error generating week plan. Please try again.";
+      outputArea.value = "❌ Error generating recipe. Please try again.";
     }
   });
 
-  // Reset
-  resetBtn.addEventListener("click", () => {
-    inputBox.value = "";
-    outputArea.value = "";
+  // Trigger on Enter key
+  inputBox.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      generateBtn.click();
+    }
   });
+
+  // Week Plan (ingredient-based)
+  if (weekPlanBtn) {
+    weekPlanBtn.addEventListener("click", async () => {
+      const ingredients = inputBox.value.trim();
+
+      if (!ingredients) {
+        outputArea.value =
+          "⚠️ Please type some ingredients for the weekly plan!";
+        return;
+      }
+
+      try {
+        const response = await fetch("/weekplan", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ ingredients }),
+        });
+
+        const data = await response.json();
+        outputArea.value = data.plan;
+      } catch (error) {
+        outputArea.value = "❌ Error generating week plan. Please try again.";
+      }
+    });
+  }
+
+  // Reset
+  if (resetBtn) {
+    resetBtn.addEventListener("click", () => {
+      inputBox.value = "";
+      outputArea.value = "";
+    });
+  }
 });
 
 // -------------------------------- Generator Form Script End -------------------------------------------//
 
 // ---------------- Contact Form Script Start -------------------//
 const btn = document.getElementById("button");
+const form = document.getElementById("form");
 
-document.getElementById("form").addEventListener("submit", function (event) {
-  event.preventDefault();
+// 🔒 Guard clause
+if (btn && form) {
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-  btn.value = "Sending...";
+    btn.value = "Sending...";
 
-  const serviceID = "default_service";
-  const templateID = "template_7qw7ghh";
+    const serviceID = "default_service";
+    const templateID = "template_7qw7ghh";
 
-  emailjs.sendForm(serviceID, templateID, this).then(
-    () => {
-      btn.value = "Send Email";
-      alert("Your message has been sent successfully!");
-    },
-    (err) => {
-      btn.value = "Send Email";
-      alert(JSON.stringify(err));
-    }
-  );
-});
+    emailjs.sendForm(serviceID, templateID, this).then(
+      () => {
+        btn.value = "Send Email";
+        alert("Your message has been sent successfully!");
+      },
+      (err) => {
+        btn.value = "Send Email";
+        alert(JSON.stringify(err));
+      }
+    );
+  });
+}
 
 // ---------------- Contact Form Script End -------------------//
 

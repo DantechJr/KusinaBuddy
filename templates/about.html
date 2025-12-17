@@ -69,18 +69,139 @@
       </div>
     </nav>
 
-    <!-- main content -->
+    <!----------------------------------- main content --------------------------------------->
     <main>
+      <!--------------------------------- Hero section ---------------------------------->
+      <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#myCarousel"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#myCarousel"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#myCarousel"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="{{ url_for('static', filename='media files/bg3.jpg') }}"
+              alt=""
+              style="object-fit: cover; width: 100%; height: 100%"
+            />
+            <div class="container">
+              <div
+                class="carousel-caption text-start rounded-4 px-3"
+                style="
+                  background-color: rgba(250, 247, 247, 0.349);
+                  color: black;
+                "
+              >
+                <h1>A Filipino "boodle fight"</h1>
+                <p>
+                  a communal feast where food is spread on a long table,
+                  traditionally covered with banana leaves, and eaten with bare
+                  hands in a style called kamayan.
+                </p>
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="{{ url_for('static', filename='media files/bg2.jpg') }}"
+              alt=""
+              style="object-fit: cover; width: 100%; height: 100%"
+            />
+            <div class="container">
+              <div
+                class="carousel-caption rounded-4 px-3"
+                style="
+                  background-color: rgba(250, 247, 247, 0.349);
+                  color: black;
+                "
+              >
+                <h1>Filipino appetizers or "Pulutan".</h1>
+                <p>
+                  Filipino sisig is a spicy and savory dish made of chopped
+                  pig's face and ears (and sometimes liver) served on a sizzling
+                  plate, which makes it a popular "pulutan" or appetizer for
+                  alcoholic drinks.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="{{ url_for('static', filename='media files/bg11.jpg') }}"
+              alt=""
+              style="object-fit: cover; width: 100%; height: 100%"
+            />
+            <div class="container">
+              <div
+                class="carousel-caption text-end rounded-4 px-3"
+                style="
+                  background-color: rgba(250, 247, 247, 0.349);
+                  color: black;
+                "
+              >
+                <h1>Friday is Monggo day!</h1>
+                <p>
+                  "Monggo" refers to the mung bean, a key ingredient in a
+                  popular Filipino comfort food called Ginisang Monggo, a savory
+                  stew of sautéed mung beans with garlic, onions, tomatoes, and
+                  leafy greens like spinach or malunggay.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- carousel buttons -->
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <!-- -------------------------------Welcome message------------------------- -->
       <div class="aboutPage mb-5">
         <div class="text-center p-5">
           <h1>Welcome to Kusina Buddy</h1>
           <h4>your simple, smart, and reliable cooking companion.</h4>
         </div>
-        <div class="row p-5 bg-body-tertiary rounded-3">
+        <div class="row p-5 bg-body-tertiary">
           <div
             class="col-md-4 d-flex flex-column justify-content-center align-items-center"
           >
             <img
+              class="rounded-4"
               src="{{ url_for('static', filename='media files/aboutRobo.jpg') }}"
               alt=""
               style="background-size: contain"
@@ -126,205 +247,376 @@
         </div>
       </div>
 
-      <!-- Hero section -->
-      <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#myCarousel"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#myCarousel"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#myCarousel"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
+      <!------------------------------------App Features--------------------------------------------->
+      <div
+        class="row row-cols-1 row-cols-sm-12 row-cols-md-2 row-cols-lg-4 g-2 my-5 mx-5"
+      >
+        <!---------------------------Meal plan Generator------------------------------ -->
+        <div class="col p-3">
+          <div class="card shadow-sm">
             <img
-              src="../static/media files/bg3.jpg"
+              src="{{ url_for('static', filename='media files/recipeGenerator.gif') }}"
               alt=""
-              style="object-fit: cover; width: 100%; height: 100%"
+              aria-label="Placeholder: Thumbnail"
+              class="bd-placeholder-img card-img-top"
+              height="225"
+              preserveAspectRatio="xMidYMid slice"
+              role="img"
+              width="100%"
+              style="object-fit: contain"
             />
-            <div class="container">
-              <div
-                class="carousel-caption text-start rounded-4 px-3"
-                style="
-                  background-color: rgba(250, 247, 247, 0.349);
-                  color: black;
-                "
-              >
-                <h1>A Filipino "boodle fight"</h1>
-                <p>
-                  a communal feast where food is spread on a long table,
-                  traditionally covered with banana leaves, and eaten with bare
-                  hands in a style called kamayan.
-                </p>
-                <p></p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img
-              src="../static/media files/bg2.jpg"
-              alt=""
-              style="object-fit: cover; width: 100%; height: 100%"
-            />
-            <div class="container">
-              <div
-                class="carousel-caption rounded-4 px-3"
-                style="
-                  background-color: rgba(250, 247, 247, 0.349);
-                  color: black;
-                "
-              >
-                <h1>Filipino appetizers or "Pulutan".</h1>
-                <p>
-                  Filipino sisig is a spicy and savory dish made of chopped
-                  pig's face and ears (and sometimes liver) served on a sizzling
-                  plate, which makes it a popular "pulutan" or appetizer for
-                  alcoholic drinks.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img
-              src="../static/media files/bg11.jpg"
-              alt=""
-              style="object-fit: cover; width: 100%; height: 100%"
-            />
-            <div class="container">
-              <div
-                class="carousel-caption text-end rounded-4 px-3"
-                style="
-                  background-color: rgba(250, 247, 247, 0.349);
-                  color: black;
-                "
-              >
-                <h1>Friday is Monggo day!</h1>
-                <p>
-                  "Monggo" refers to the mung bean, a key ingredient in a
-                  popular Filipino comfort food called Ginisang Monggo, a savory
-                  stew of sautéed mung beans with garlic, onions, tomatoes, and
-                  leafy greens like spinach or malunggay.
-                </p>
-              </div>
+            <div class="card-body">
+              <h5>Recipe Generator</h5>
+              <p class="card-text">
+                A recipe generator is an AI-powered tool that uses user inputs,
+                such as available ingredients, dietary requirements, and
+                preferences, to create custom recipes. It then employs
+                algorithms to produce distinctive, detailed instructions,
+                assisting users in reducing food waste and discovering new
+                dishes.
+              </p>
             </div>
           </div>
         </div>
-        <!-- carousel buttons -->
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#myCarousel"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#myCarousel"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+
+        <!----------------------------Calculator------------------------------ -->
+        <div class="col p-3">
+          <div class="card shadow-sm">
+            <img
+              src="{{ url_for('static', filename='media files/calculator.gif') }}"
+              alt=""
+              aria-label="Placeholder: Thumbnail"
+              class="bd-placeholder-img card-img-top"
+              height="225"
+              preserveAspectRatio="xMidYMid slice"
+              role="img"
+              width="100%"
+              style="object-fit: contain"
+            />
+            <div class="card-body">
+              <h5>Calculator</h5>
+              <p class="card-text">
+                The built-in calculator helps users quickly compute ingredient
+                quantities based on the number of servings they need. It can
+                also be used to recalculate measurements to ensure accuracy and
+                consistency while cooking. Beyond recipes, the calculator can
+                also assist in managing finances by estimating ingredient costs,
+                helping users plan budgets, compare prices, and make
+                cost-effective meal choices.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-----------------------------Notepad------------------------------ -->
+        <div class="col p-3">
+          <div class="card shadow-sm">
+            <img
+              src="{{ url_for('static', filename='media files/Note.gif') }}"
+              alt=""
+              aria-label="Placeholder: Thumbnail"
+              class="bd-placeholder-img card-img-top"
+              height="225"
+              preserveAspectRatio="xMidYMid slice"
+              role="img"
+              width="100%"
+              style="object-fit: contain"
+            />
+            <div class="card-body">
+              <h5>Notepad</h5>
+              <p class="card-text">
+                The built-in notepad in the recipe generator allows users to
+                write down personal notes, cooking tips, or ingredient
+                substitutions for future reference. It helps keep ideas
+                organized while cooking or planning meals. This feature makes
+                the recipe generator more personalized and convenient to use.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!---------------------------Store Finder------------------------------ -->
+        <div class="col p-3">
+          <div class="card shadow-sm">
+            <img
+              src="{{ url_for('static', filename='media files/storeFinder') }}"
+              alt=""
+              aria-label="Placeholder: Thumbnail"
+              class="bd-placeholder-img card-img-top"
+              height="225"
+              preserveAspectRatio="xMidYMid slice"
+              role="img"
+              style="object-fit: contain"
+            />
+            <div class="card-body">
+              <h5>Store Finder</h5>
+              <p class="card-text">
+                The built-in store finder in the recipe generator helps users
+                easily locate nearby grocery stores where they can buy the
+                needed ingredients. It saves time by showing convenient options
+                based on location and availability. This feature makes meal
+                planning smoother by connecting recipes directly to real-world
+                shopping needs.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- THE FEATURETTES -->
-      <div class="container marketing">
-        <hr class="featurette-divider" />
-        <div class="row featurette">
+      <!-- ------------------------------Gallery thumbnail-------------------------------- -->
+      <div>
+        <!-- --------------1st Row------------- -->
+        <div class="row mb-2 mx-5">
           <div class="col-md-6">
-            <h2 class="featurette-heading fw-normal lh-1">
-              Filipino food.
-              <span class="text-body-secondary">It’ll blow your mind.</span>
-            </h2>
-            <p class="lead">
-              Filipino food is a diverse cuisine influenced by Malay, Chinese,
-              Spanish, and American cultures, known for its sweet, sour, salty,
-              and savory flavors.
-            </p>
+            <div
+              class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+            >
+              <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary-emphasis"
+                  >Asian Cuisine</strong
+                >
+                <h3 class="mb-0">Filipino food</h3>
+                <div class="mb-1 text-body-secondary">It’ll blow your mind</div>
+                <p class="card-text mb-auto">
+                  Filipino food is a diverse cuisine influenced by Malay,
+                  Chinese, Spanish, and American cultures, known for its sweet,
+                  sour, salty, and savory flavors.
+                </p>
+                <a
+                  href="https://panlasangpinoy.com/"
+                  class="icon-link gap-1 icon-link-hover stretched-link"
+                >
+                  Continue reading
+                  <svg class="bi" aria-hidden="true">
+                    <use xlink:href="#chevron-right"></use>
+                  </svg>
+                </a>
+              </div>
+              <div class="col-auto d-none d-lg-block">
+                <img
+                  src="{{ url_for('static', filename='media files/bg5.jpg') }}"
+                  alt=""
+                  height="250"
+                  width="200"
+                  style="object-fit: cover"
+                />
+              </div>
+            </div>
           </div>
-          <div class="feature-img col-md-6">
-            <img
-              class="mx-auto img-fluid d-block mx-auto feature-img"
-              src="../static/media files/bg5.jpg"
-              alt=""
-            />
-          </div>
-        </div>
-        <hr class="featurette-divider" />
-        <div class="row featurette">
-          <div class="col-md-6 order-md-2">
-            <h2 class="featurette-heading fw-normal lh-1">
-              Oh yeah, it’s that good.
-              <span class="text-body-secondary">See for yourself.</span>
-            </h2>
-            <p class="lead">
-              Filipino cuisine is a vibrant and diverse culinary tradition that
-              reflects the country's rich cultural history and regional
-              variations. It offers a wide range of flavors and cooking
-              techniques, from simple meals to elaborate dishes, and continues
-              to evolve and adapt to new influences and contexts.
-            </p>
-          </div>
-          <div class="col-md-6 order-md-1">
-            <div class="feature-img col-md-5">
-              <img
-                class="mx-auto img-fluid d-block mx-auto feature-img"
-                src="../static/media files/bg4.jpg"
-                alt=""
-              />
+          <div class="col-md-6">
+            <div
+              class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+            >
+              <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-success-emphasis"
+                  >Tradition</strong
+                >
+                <h3 class="mb-0">Oh yeah, it’s that good!</h3>
+                <div class="mb-1 text-body-secondary">See for yourself</div>
+                <p class="mb-auto">
+                  Filipino cuisine is a vibrant and diverse culinary tradition
+                  that reflects the country's rich cultural history and regional
+                  variations.
+                </p>
+                <a
+                  href="https://www.michellecarlos.com/post/what-is-filipino-food"
+                  class="icon-link gap-1 icon-link-hover stretched-link"
+                >
+                  Continue reading
+                  <svg class="bi" aria-hidden="true">
+                    <use xlink:href="#chevron-right"></use>
+                  </svg>
+                </a>
+              </div>
+              <div class="col-auto d-none d-lg-block">
+                <img
+                  src="{{ url_for('static', filename='media files/iconRobo.png') }}"
+                  alt=""
+                  height="250"
+                  width="200"
+                  style="object-fit: cover"
+                />
+              </div>
             </div>
           </div>
         </div>
-        <hr class="featurette-divider" />
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading fw-normal lh-1">
-              And lastly, this one.
-              <span class="text-body-secondary">Checkmate.</span>
-            </h2>
-            <p class="lead">
-              The cuisine is a unique blend of indigenous, Spanish, Chinese, and
-              American influences, which is reflected in their restaurant menus.
-              Unlike other cuisines, Filipino menus often feature rice as a
-              staple, served with every meal.
-            </p>
+        <!-- --------------2nd Row------------- -->
+        <div class="row mb-2 mx-5">
+          <div class="col-md-6">
+            <div
+              class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+            >
+              <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary-emphasis"
+                  >Camaraderie</strong
+                >
+                <h3 class="mb-0">Pika pika (pulutan)</h3>
+                <div class="mb-1 text-body-secondary">It’ll blow your mind</div>
+                <p class="card-text mb-auto">
+                  a Filipino/Spanish term for finger foods, appetizers, or
+                  little snacks served at parties or gatherings, like spring
+                  rolls or street foods such as fishballs. perfect for nibbling
+                  while socializing.
+                </p>
+                <a
+                  href="https://merkadoph.se/blogs/news/the-art-and-culture-of-filipino-kamayan?srsltid=AfmBOopQuKtyoNeU42g-4SBey0VvcXBTPnAJe0jIJqQgjpRf0HtHNomH"
+                  class="icon-link gap-1 icon-link-hover stretched-link"
+                >
+                  Continue reading
+                  <svg class="bi" aria-hidden="true">
+                    <use xlink:href="#chevron-right"></use>
+                  </svg>
+                </a>
+              </div>
+              <div class="col-auto d-none d-lg-block">
+                <img
+                  src="../static/media files/bg2.jpg"
+                  alt=""
+                  style="object-fit: cover"
+                  height="250"
+                  width="200"
+                />
+              </div>
+            </div>
           </div>
-          <div class="feature-img col-md-5">
-            <img
-              class="mx-auto img-fluid d-block mx-auto feature-img"
-              src="../static/media files/bg6.jpg"
-              alt=""
-            />
+          <div class="col-md-6">
+            <div
+              class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+            >
+              <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-success-emphasis"
+                  >The Best!
+                </strong>
+                <h3 class="mb-0">And lastly, this one</h3>
+                <div class="mb-1 text-body-secondary">Checkmate</div>
+                <p class="mb-auto">
+                  The cuisine is a unique blend of indigenous, Spanish, Chinese,
+                  and American influences, which is reflected in their
+                  restaurant menus. Filipino menus often feature rice as a
+                  staple.
+                </p>
+                <a
+                  href="https://www.ifexconnect.com/public/story/fusion-of-flavors-an-estuary-of-filipino-and-middle-eastern-cuisines"
+                  class="icon-link gap-1 icon-link-hover stretched-link"
+                >
+                  Continue reading
+                  <svg class="bi" aria-hidden="true">
+                    <use xlink:href="#chevron-right"></use>
+                  </svg>
+                </a>
+              </div>
+              <div class="col-auto d-none d-lg-block">
+                <img
+                  src="../static/media files/bg6.jpg"
+                  alt=""
+                  height="250"
+                  width="200"
+                  style="object-fit: cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
-        <hr class="featurette-divider" />
-        <!-- /END THE FEATURETTES -->
+      </div>
+
+      <!-----------------------------------Testimonials ------------------------------- -->
+      <div class="container-fluid bg-body-tertiary text-center my-5">
+        <div class="row">
+          <!------------------ ninong ry ----------------- -->
+          <div class="col-lg-4 p-5">
+            <img
+              class="bd-placeholder-img rounded-circle"
+              height="140"
+              width="140"
+              preserveAspectRatio="xMidYMid slice"
+              role="img"
+              src="{{ url_for('static', filename='media files/ninongRy.jpg') }}"
+              style="object-fit: cover"
+              alt=""
+            />
+            <h2 class="fw-normal">Ryan Reyes aka: Ninong Ry</h2>
+            <b>Chef & Filipino vlogger</b>
+            <p>
+              "Control the heat, don't let the heat control you." napaka hot ng
+              app nato!
+            </p>
+            <p>
+              <a
+                class="btn btn-outline-success"
+                href="https://web.facebook.com/ninongry"
+                >View details &raquo;</a
+              >
+            </p>
+          </div>
+
+          <!------------------ gordon ramsay ----------------- -->
+          <div class="col-lg-4 p-5">
+            <img
+              class="bd-placeholder-img rounded-circle"
+              height="140"
+              width="140"
+              preserveAspectRatio="xMidYMid slice"
+              role="img"
+              src="{{ url_for('static', filename='media files/gordonRamsay.jpg') }}"
+              style="object-fit: cover"
+              alt=""
+            />
+            <h2 class="fw-normal">Gordon Ramsay</h2>
+            <b>British Celebrity Chef & Restaurateur</b>
+            <p>
+              "Cookery is quite a journey. Take nothing for granted." You're
+              getting your knickers in a twist!
+            </p>
+            <p>
+              <a
+                class="btn btn-outline-success"
+                href="https://web.facebook.com/gordonramsay"
+                >View details &raquo;</a
+              >
+            </p>
+          </div>
+
+          <!------------------ Hilda Baci ----------------- -->
+          <div class="col-lg-4 p-5">
+            <img
+              class="bd-placeholder-img rounded-circle"
+              height="140"
+              width="140"
+              preserveAspectRatio="xMidYMid slice"
+              role="img"
+              src="{{ url_for('static', filename='media files/hildaBaci.jpg') }}"
+              style="object-fit: cover"
+              alt=""
+            />
+            <h2 class="fw-normal">Hilda Baci</h2>
+            <b>Nigerian chef and restaurateur</b>
+            <p>
+              Tsamina mina, eh, eh Waka waka, eh, eh, Tsamina mina, Waka waka,
+              eh, eh Tsamina mina zangalewa This time for Africa
+            </p>
+            <p>
+              <a
+                class="btn btn-outline-success"
+                href="https://web.facebook.com/groups/154843540716333"
+                >View details &raquo;</a
+              >
+            </p>
+          </div>
+        </div>
       </div>
 
       <!-- FOOTER -->
       <footer class="footer mx-3 my-3">
         <p>&copy; 2025 Kusina Buddy &middot;</p>
-        <p>
-          <a href="#" class="text-muted text-decoration-none">Back to top</a>
-        </p>
+        <a href="#"
+          ><img
+            src="../static/media files/up.gif"
+            alt=""
+            height="40"
+            width="40"
+            style="object-fit: contain"
+          />
+        </a>
       </footer>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
