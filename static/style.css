@@ -4,17 +4,22 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 body {
   display: flex;
   flex-direction: column;
-  background-color: #fffff2;
 }
 
 main {
@@ -26,6 +31,13 @@ h2 {
 }
 
 /* --------------------------navigation bar start------------------ */
+
+.nav-link {
+  outline-style: outset;
+  outline-color: #198754;
+  margin: 10px;
+}
+
 .navbar-logo {
   max-height: 80px;
   width: auto;
@@ -66,6 +78,10 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: absolute;
+
+  width: 100%;
+  bottom: 0%;
 }
 
 /* --------------------------footer end------------------ */
@@ -83,6 +99,86 @@ h2 {
   background-color: rgba(0, 0, 0, 0.751);
 }
 
+.glow-on-hover {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  line-height: 0px;
+  outline-style: outset;
+  outline-color: #198754;
+}
+
+.glow-on-hover:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:active {
+  color: #000000;
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
 /* --------------------------Landing Page end------------------ */
 
 /* --------------------------Home Page start------------------ */
@@ -94,11 +190,11 @@ h2 {
   background-repeat: no-repeat;
 }
 
-/* --------------------------Landing Page end------------------ */
+/* --------------------------Home Page end------------------ */
 
 /* --------------------------About Page start------------------ */
 .aboutPage {
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 /* --------------------------About Page end------------------ */
@@ -128,6 +224,12 @@ h2 {
   bottom: 120px;
   left: 0;
   z-index: 1500;
+  opacity: 0.5;
+  transition: opacity 0.3 ease;
+}
+
+.notepadBtn:hover {
+  opacity: 1;
 }
 
 /* --------------------------Notepad end------------------ */
@@ -139,8 +241,13 @@ h2 {
   bottom: 40px;
   left: 0;
   z-index: 1500;
+  opacity: 0.5;
+  transition: opacity 0.3 ease;
 }
 
+.storeFinderBtn:hover {
+  opacity: 1;
+}
 /* --------------------------Store finder end------------------ */
 
 /* ------------------------ Calculator CSS Start ----------------------- */
@@ -150,6 +257,12 @@ h2 {
   bottom: 220px;
   z-index: 1500;
   left: 0;
+  opacity: 0.5;
+  transition: opacity 0.3 ease;
+}
+
+.calculatorBtn:hover {
+  opacity: 1;
 }
 
 .calcBody {
@@ -280,7 +393,7 @@ h2 {
 }
 
 .featurette {
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .feature-img {

@@ -3,7 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NITP Capstone</title>
+    <title>Kusina Buddy</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='media files/iconRobo2.png') }}"
+    />
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='style.css') }}"
@@ -18,57 +23,62 @@
     />
   </head>
   <body>
+    <div id="top"></div>
+
     <!---------------------- navbar ----------------------->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid mx-3">
-        <a class="navbar-brand" href="{{ url_for('index') }}">
-          <img
-            src="{{ url_for('static', filename='media files/logo.png') }}"
-            alt="Logo"
-            class="navbar-logo"
-          />
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="{{ url_for('home') }}"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="{{ url_for('about') }}"
-                >About</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="{{ url_for('contact') }}"
-                >Contact</a
-              >
-            </li>
-          </ul>
+
+    <header>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid navCon mx-3">
+          <a class="navbar-brand" href="{{ url_for('index') }}">
+            <img
+              src="{{ url_for('static', filename='media files/logo.png') }}"
+              alt="Logo"
+              class="navbar-logo"
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active btn"
+                  aria-current="page"
+                  href="{{ url_for('home') }}"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active btn"
+                  aria-current="page"
+                  href="{{ url_for('about') }}"
+                  >About</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active btn"
+                  aria-current="page"
+                  href="{{ url_for('contact') }}"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
 
     <main class="homeBg">
       <!------------------------ header --------------------->
@@ -92,7 +102,7 @@
               class="col-lg-6 col-md-6 col-sm-12 d-flex flex-column justify-content-center align-items-center"
             >
               <img
-                src="{{ url_for('static', filename='media files/iconRobo.png') }}"
+                src="{{ url_for('static', filename='media files/iconRobo2.png') }}"
                 alt="Logo"
                 width="100%"
                 height="100%"
@@ -155,7 +165,6 @@
       </div>
 
       <!-------------------- modal buttons for notepad and calculator and store finder------------------------>
-
       <div class="modals">
         <!------------------ Button trigger modal for Store Finder -------------------->
         <div class="">
@@ -188,7 +197,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h1 class="modal-title fs-5" id="staticBackdropLabel">
-                    Store Finder
+                    Store Finder (Coming Soon)
                   </h1>
                   <button
                     type="button"
@@ -385,16 +394,19 @@
     </main>
 
     <!------------------- Footer -------------------->
-    <footer class="footer mx-3 my-3">
-      <p>&copy; 2025 Kusina Buddy &middot;</p>
-      <a href="#">
-        <img
-          src="../static/media files/up.gif"
-          alt=""
-          height="40"
-          width="40"
-          style="object-fit: contain"
-        />
+    <footer class="footer">
+      <p class="mx-3"></p>
+      <a href="#top" style="text-decoration: none">
+        <figure class="mx-3">
+          <img
+            src="../static/media files/up2.gif"
+            alt=""
+            height="50"
+            width="50"
+            style="object-fit: contain; background-color: transparent"
+          />
+          <figcaption class="text-center text-black">Top</figcaption>
+        </figure>
       </a>
     </footer>
 

@@ -1,3 +1,4 @@
+// -------------------------------- Generator Form Script End -------------------------------------------//
 document.addEventListener("DOMContentLoaded", () => {
   const generateBtn = document.querySelector(
     ".btn.btn-outline-success.me-md-2"
@@ -87,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // -------------------------------- Generator Form Script End -------------------------------------------//
 
-// ---------------- Contact Form Script Start -------------------//
+// -------------------------------- Contact Form Script Start -------------------------------------------//
 const btn = document.getElementById("button");
 const form = document.getElementById("form");
 
@@ -114,9 +115,9 @@ if (btn && form) {
   });
 }
 
-// ---------------- Contact Form Script End -------------------//
+// --------------------------------------- Contact Form Script End ------------------------------------//
 
-// ----------------- Calculator Script Start -----------------------//
+// --------------------------------------- Calculator Script Start -------------------------------------//
 
 // Run only when modal is opened
 document
@@ -147,9 +148,9 @@ function calculate() {
   }
 }
 
-// ---------------- Calculator Script End -------------------//
+// --------------------------------------- Calculator Script End -----------------------------------//
 
-// ---------------- Notepad Script Start -------------------//
+// ---------------------------------------- Notepad Script Start--------------- -------------------//
 
 function saveFile() {
   // Get the content from the text area
@@ -184,4 +185,4 @@ function newFile() {
   alert("New document created.");
 }
 
-// ---------------- Notepad Script End -------------------//
+// -------------------------------------- Notepad Script End -------------------------------------//

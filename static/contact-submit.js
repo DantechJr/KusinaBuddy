@@ -19,9 +19,9 @@ document.addEventListener("DOMContentLoaded", function () {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "X-Requested-With": "XMLHttpRequest"
+          "X-Requested-With": "XMLHttpRequest",
         },
-        body: JSON.stringify({ from_name, email_id, message })
+        body: JSON.stringify({ from_name, email_id, message }),
       });
 
       const data = await resp.json();
@@ -29,7 +29,10 @@ document.addEventListener("DOMContentLoaded", function () {
         showTempMessage("✅ " + (data.message || "Message sent."), "success");
         form.reset();
       } else {
-        showTempMessage("❌ " + (data.message || "There was an error sending your message."), "danger");
+        showTempMessage(
+          "❌ " + (data.message || "There was an error sending your message."),
+          "danger"
+        );
       }
     } catch (err) {
       console.error(err);
@@ -38,23 +41,23 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function showTempMessage(text, type) {
-  const container = document.createElement("div");
-  container.className = `alert alert-${type}`;
-  container.role = "alert";
-  container.textContent = text;
+    const container = document.createElement("div");
+    container.className = `alert alert-${type}`;
+    container.role = "alert";
+    container.textContent = text;
 
-  const parent = document.querySelector(".contactForm") || document.body;
-  parent.insertBefore(container, parent.firstChild);
+    const parent = document.querySelector(".contactForm") || document.body;
+    parent.insertBefore(container, parent.firstChild);
 
-  // Trigger fade-in
-  requestAnimationFrame(() => {
-    container.classList.add("show");
-  });
+    // Trigger fade-in
+    requestAnimationFrame(() => {
+      container.classList.add("show");
+    });
 
-  // Fade-out before removal
-  setTimeout(() => {
-    container.classList.remove("show");
-    setTimeout(() => container.remove(), 500); // wait for transition
-  }, 6000);
-    }
+    // Fade-out before removal
+    setTimeout(() => {
+      container.classList.remove("show");
+      setTimeout(() => container.remove(), 500); // wait for transition
+    }, 6000);
+  }
 });

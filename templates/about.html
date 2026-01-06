@@ -3,7 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NITP Capstone</title>
+    <title>Kusina Buddy</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='media files/iconRobo2.png') }}"
+    />
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='style.css') }}"
@@ -18,8 +23,8 @@
   </head>
   <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid mx-3">
+    <nav class="navbar navbar-expand-lg bg-light" id="top">
+      <div class="container-fluid navCon mx-3">
         <a class="navbar-brand" href="{{ url_for('index') }}">
           <img
             src="{{ url_for('static', filename='media files/logo.png') }}"
@@ -42,7 +47,7 @@
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a
-                class="nav-link active"
+                class="nav-link active btn"
                 aria-current="page"
                 href="{{ url_for('home') }}"
                 >Home</a
@@ -50,7 +55,7 @@
             </li>
             <li class="nav-item">
               <a
-                class="nav-link active"
+                class="nav-link active btn"
                 aria-current="page"
                 href="{{ url_for('about') }}"
                 >About</a
@@ -58,7 +63,7 @@
             </li>
             <li class="nav-item">
               <a
-                class="nav-link active"
+                class="nav-link active btn"
                 aria-current="page"
                 href="{{ url_for('contact') }}"
                 >Contact</a
@@ -520,7 +525,7 @@
       </div>
 
       <!-----------------------------------Testimonials ------------------------------- -->
-      <div class="container-fluid bg-body-tertiary text-center my-5">
+      <div class="container-fluid bg-body-tertiary text-center mt-5">
         <div class="row">
           <!------------------ ninong ry ----------------- -->
           <div class="col-lg-4 p-5">
@@ -606,16 +611,19 @@
       </div>
 
       <!-- FOOTER -->
-      <footer class="footer mx-3 my-3">
-        <p>&copy; 2025 Kusina Buddy &middot;</p>
-        <a href="#"
-          ><img
-            src="../static/media files/up.gif"
-            alt=""
-            height="40"
-            width="40"
-            style="object-fit: contain"
-          />
+      <footer class="footer">
+        <p class="mx-3"></p>
+        <a href="#top" style="text-decoration: none">
+          <figure class="mx-3">
+            <img
+              src="../static/media files/up2.gif"
+              alt=""
+              height="50"
+              width="50"
+              style="object-fit: contain; background-color: transparent"
+            />
+            <figcaption class="text-center text-black">Top</figcaption>
+          </figure>
         </a>
       </footer>
     </main>

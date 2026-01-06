@@ -1,7 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const generateBtn = document.querySelector(".btn.btn-outline-success.me-md-2");
-  const weekPlanBtn = document.querySelector(".btn.btn-outline-success:nth-child(2)");
-  const resetBtn = document.querySelector(".btn.btn-outline-success:nth-child(3)");
+  const generateBtn = document.querySelector(
+    ".btn.btn-outline-success.me-md-2"
+  );
+  const weekPlanBtn = document.querySelector(
+    ".btn.btn-outline-success:nth-child(2)"
+  );
+  const resetBtn = document.querySelector(
+    ".btn.btn-outline-success:nth-child(3)"
+  );
   const inputBox = document.getElementById("generateBox");
   const outputArea = document.getElementById("FormControlTextarea1");
 
@@ -17,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const response = await fetch("/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query })
+        body: JSON.stringify({ query }),
       });
       const data = await response.json();
       outputArea.value = data.result;
@@ -38,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const response = await fetch("/weekplan", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ingredients })
+        body: JSON.stringify({ ingredients }),
       });
       const data = await response.json();
       outputArea.value = data.plan;

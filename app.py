@@ -54,6 +54,10 @@ gemini_model = pick_model()
 def index():
     return render_template("index.html")
 
+@app.route("/welcome")
+def welcome():
+    return render_template("welcome.html")
+
 @app.route("/home")
 def home():
     return render_template("home.html")
