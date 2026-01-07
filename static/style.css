@@ -217,6 +217,26 @@ h2 {
 
 /* --------------------------Contact Page end------------------ */
 
+/* ----------------------------Generator start-------------------- */
+
+.gentextArea {
+  /* Set the desired maximum height */
+  max-height: 200px; /* You can use any unit: px, em, rem, etc. */
+
+  /* Ensure vertical scrollbars appear automatically when needed */
+  overflow-y: auto;
+
+  /* Optional: You can also set a default height for when content is short */
+  height: 250px;
+
+  /* Optional: other styling like width, padding, border etc. */
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box; /* Ensures padding/border are included in the width */
+}
+
+/* ----------------------------Generator end------------------------ */
+
 /* --------------------------Notepad start------------------ */
 
 .notepadBtn {
