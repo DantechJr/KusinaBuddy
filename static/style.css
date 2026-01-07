@@ -252,6 +252,11 @@ h2 {
   opacity: 1;
 }
 
+.notepadTxtarea {
+  max-height: 200px;
+  height: 250px;
+}
+
 /* --------------------------Notepad end------------------ */
 
 /* --------------------------Store finder start------------------ */
