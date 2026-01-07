@@ -12,6 +12,11 @@
 
     <style>
       @import url("https://fonts.googleapis.com/css?family=Amatic+SC");
+
+      :root {
+        --cooking-offset-x: -3vw; /* move left (adjust value) */
+      }
+
       body {
         background-color: #fb8d33;
         height: 100vh;
@@ -20,25 +25,20 @@
       }
 
       h1 {
-        position: relative;
-        margin: 0 auto;
-        top: 25vh;
-        width: 100vw;
+        margin-bottom: 10px;
         text-align: center;
         font-family: "Amatic SC";
-        font-size: 6vh;
+        font-size: clamp(32px, 6vh, 56px);
         color: #333;
         opacity: 0.75;
         animation: pulse 2.5s linear infinite;
       }
 
       #cooking {
+        width: min(75vh, 90vw);
+        height: min(75vh, 90vw);
         position: relative;
-        margin: 0 auto;
-        top: 0;
-        width: 75vh;
-        height: 75vh;
-        overflow: hidden;
+        transform: translateX(var(--cooking-offset-x));
       }
 
       #cooking #area {
@@ -274,11 +274,10 @@
       }
 
       #loading-text {
-        position: relative;
-        top: 26vh;
+        margin-bottom: 20px;
         text-align: center;
         font-family: "Amatic SC";
-        font-size: 4vh;
+        font-size: clamp(20px, 4vh, 36px);
         color: #333;
         opacity: 0.85;
       }
@@ -299,6 +298,14 @@
       }
 
       #splash {
+        height: 100vh;
+        width: 100vw;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* horizontal center */
+        justify-content: center; /* vertical center */
+
         will-change: opacity, filter;
       }
     </style>

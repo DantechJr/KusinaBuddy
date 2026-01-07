@@ -30,8 +30,8 @@
   <body
     class="landingBg container d-flex justify-content-center align-items-center vh-100"
   >
-    <div class="landingLogo p-5 text-center rounded-3">
-      <div class="container-fluid mx-3">
+    <div class="landingLogo py-5 px-3 text-center rounded-3">
+      <div class="container-fluid mx-auto">
         <a class="navbar-brand" href="{{ url_for('welcome') }}">
           <img
             src="{{ url_for('static', filename='media files/logo.png') }}"
@@ -45,7 +45,9 @@
           Healthy options in just one click!
         </p>
         <div class="glow-on-hover d-inline-flex">
-          <a href="{{ url_for('home') }}" class="btn w-100 py-2 text-white"
+          <a
+            href="{{ url_for('home') }}"
+            class="btn mx-auto w-100 py-2 text-white"
             >GENERATE NOW</a
           >
         </div>
