@@ -50,6 +50,7 @@ header {
 
 .navbar {
   background-color: rgba(0, 0, 0, 0.751);
+  color: white;
 }
 
 /* Desktop size */
@@ -213,7 +214,6 @@ header {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
   object-fit: cover;
 }
 

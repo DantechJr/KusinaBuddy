@@ -22,57 +22,66 @@
     />
   </head>
   <body>
+    <div id="top"></div>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg bg-light" id="top">
-      <div class="container-fluid navCon mx-3">
-        <a class="navbar-brand" href="{{ url_for('index') }}">
-          <img
-            src="{{ url_for('static', filename='media files/logo.png') }}"
-            alt="Logo"
-            class="navbar-logo"
-          />
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a
-                class="nav-link active btn"
-                aria-current="page"
-                href="{{ url_for('home') }}"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link active btn"
-                aria-current="page"
-                href="{{ url_for('about') }}"
-                >About</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link active btn"
-                aria-current="page"
-                href="{{ url_for('contact') }}"
-                >Contact</a
-              >
-            </li>
-          </ul>
+    <header>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid navCon mx-3">
+          <a class="navbar-brand" href="{{ url_for('index') }}">
+            <img
+              src="{{ url_for('static', filename='media files/logo.png') }}"
+              alt="Logo"
+              class="navbar-logo"
+            />
+          </a>
+          <button
+            class="navbar-toggler text-white"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <!-- <span class="navbar-toggler-icon"></span> -->
+            <img
+              src="{{ url_for('static', filename='media files/toggler.png') }}"
+              alt=""
+              width="40"
+              height="40"
+            />
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active btn text-white"
+                  aria-current="page"
+                  href="{{ url_for('home') }}"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active btn text-white"
+                  aria-current="page"
+                  href="{{ url_for('about') }}"
+                  >About</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active btn text-white"
+                  aria-current="page"
+                  href="{{ url_for('contact') }}"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
 
     <!----------------------------------- main content --------------------------------------->
     <main>
