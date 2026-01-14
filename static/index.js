@@ -1,4 +1,4 @@
-// -------------------------------- Generator Form Script End -------------------------------------------//
+// -------------------------------- Generator Form Script Start -------------------------------------------//
 document.addEventListener("DOMContentLoaded", () => {
   const generateBtn = document.querySelector(
     ".btn.btn-outline-success.me-md-2"

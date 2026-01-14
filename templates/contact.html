@@ -85,14 +85,12 @@
       </header>
 
       <!-- row -->
-      <div class="container col-xl-10 col-xxl-8 px-4" style="padding-top: 60px">
-        <div
-          class="contactForm row align-items-center g-lg-5 my-5 pb-5 rounded-3"
-        >
+      <div class="container col-xl-10 col-xxl-8 px-4" style="padding-top: 80px">
+        <div class="contactForm row align-items-center my-3 p-3 rounded-3">
           <!-- emails us section -->
           <div class="col-md-10 mx-auto col-lg-5 py-5">
             <h1
-              class="display-6 fw-bold lh-1 text-body-emphasis-white mb-5 text-center text-lg-start"
+              class="display-6 fw-bold lh-1 text-body-emphasis-white mb-3 text-center text-lg-start"
             >
               Email Us
             </h1>
@@ -102,6 +100,16 @@
               hours:
             </p>
             <form id="form">
+              <div class="field">
+                <label for="subject">Subject</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="subject"
+                  id="subject"
+                  required
+                />
+              </div>
               <div class="field">
                 <label for="from_name">Name</label>
                 <input
@@ -145,18 +153,18 @@
           </div>
 
           <!-- find us section with map -->
-          <div class="container col-lg-7 text-center text-lg-start">
+          <div class="container col-lg-7 text-center text-lg-start mb-4">
             <h1 class="display-6 fw-bold lh-1 text-body-emphasis-white mb-3">
               Find Us
             </h1>
-            <div class="display-3">
+            <div class="display-3 mt-5">
               <p class="col-lg-10 fs-5">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
                   height="16"
                   fill="currentColor"
-                  class="bi bi-geo-alt"
+                  class="bi bi-geo-alt mt-3"
                   viewBox="0 0 16 16"
                 >
                   <path
