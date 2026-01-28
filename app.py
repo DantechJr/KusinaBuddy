@@ -114,9 +114,9 @@ def weekplan():
 
     try:
         response = gemini_model.generate_content(
-            f"Create a 7-day weekly meal plan using these ingredients: {ingredients}.\n"
+            f"Create a Filipino 7-day weekly meal plan using these ingredients: {ingredients}.\n"
             "For each day (Monday–Sunday), include breakfast, lunch, and dinner recipes. "
-            "Each recipe should have a title, ingredients with quantities, and short instructions. "
+            "Each recipe should have a title, ingredients with quantities and price per ingredients, and short instructions. "
             "At the end, add one helpful cooking or nutrition tip for the week."
         )
 
