@@ -1,7 +1,19 @@
+from click import prompt
 from flask import Flask, render_template, request, jsonify, send_from_directory
 from dotenv import load_dotenv
 import os
 import google.generativeai as genai
+
+# Force English responses globally
+SYSTEM_RULES = """
+You are a professional cooking assistant.
+
+STRICT LANGUAGE RULES:
+- Always respond in English only.
+- Never use Filipino or Tagalog.
+- Even if ingredients are written in another language, translate internally but output English.
+- Use clean formatting.
+"""
 
 # Load environment variables
 load_dotenv()
@@ -48,7 +60,17 @@ def pick_model():
 
     raise RuntimeError("No available Gemini model supports generateContent for this API key.")
 
-gemini_model = pick_model()
+# gemini_model = pick_model()
+
+try:
+    gemini_model = pick_model()
+    print("✅ Gemini model loaded successfully")
+except Exception as e:
+    print("❌ Gemini failed to initialize:", e)
+    gemini_model = None
+
+
+
 
 @app.route("/")
 def index():
@@ -70,7 +92,6 @@ def about():
 def contact():
     return render_template("contact.html")
 
-# Generate recipe (ingredient or dish name only)
 @app.route("/generate", methods=["POST"])
 def generate():
     data = request.get_json(silent=True) or {}
@@ -80,11 +101,22 @@ def generate():
         return jsonify({"result": "⚠️ Please enter an ingredient or dish name."})
 
     try:
-        response = gemini_model.generate_content(
-            f"Create a clear, step-by-step Filipino food recipe using: {query}.\n"
-            "Include: title, ingredients with quantities and price per ingredients, instructions,  , "
-            "estimated time, servings (numbered), total price per batch, and calorie counter. don't add disclaimer in the end."
-        )
+        prompt = f"""
+Create a clear, step-by-step recipe using: {query}.
+
+Include:
+- Title
+- Ingredients with quantities and price per ingredient
+- Instructions (numbered)
+- Estimated cooking time
+- Servings
+- Total price per batch in Pesos currency
+- Calorie estimate
+
+Do not add disclaimers.
+"""
+
+        response = gemini_model.generate_content(SYSTEM_RULES + prompt)
 
         recipe = getattr(response, "text", None)
         if not recipe:
@@ -102,7 +134,6 @@ def generate():
 
     except Exception as e:
         return jsonify({"result": f"❌ Error generating recipe: {str(e)}"})
-
 # Weekly plan (ingredient-based)
 @app.route("/weekplan", methods=["POST"])
 def weekplan():
