@@ -1,8 +1,8 @@
 from click import prompt
 from flask import Flask, render_template, request, jsonify, send_from_directory
-from dotenv import load_dotenv
 import os
 import google.generativeai as genai
+from pathlib import Path
 
 # Force English responses globally
 SYSTEM_RULES = """
@@ -15,17 +15,66 @@ STRICT LANGUAGE RULES:
 - Use clean formatting.
 """
 
-# Load environment variables
-load_dotenv()
+# ---------------------------------------------
+# Load environment variables (local dev only)
+dotenv_path = Path('.') / '.env'
+if dotenv_path.exists():
+    from dotenv import load_dotenv
+    load_dotenv(dotenv_path)
+# ---------------------------------------------
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
 
-# --- Gemini setup with robust auto-selection ---
+# --- Gemini setup ---
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-if not GEMINI_API_KEY or not GEMINI_API_KEY.strip():
-    raise RuntimeError("GEMINI_API_KEY is missing. Add it to your .env file beside app.py.")
 
-genai.configure(api_key=GEMINI_API_KEY)
+if not GEMINI_API_KEY:
+    print("⚠️ GEMINI_API_KEY not found — AI features will be disabled")
+    gemini_model = None
+else:
+    genai.configure(api_key=GEMINI_API_KEY)
+
+    # Preferred models
+    PREFERRED_MODELS = [
+        "models/gemini-1.5-flash-latest",
+        "models/gemini-1.5-pro",
+        "models/gemini-1.0-pro",
+    ]
+
+    def pick_model():
+        for name in PREFERRED_MODELS:
+            try:
+                m = genai.GenerativeModel(name)
+                _ = m.generate_content("ping")
+                return m
+            except Exception:
+                continue
+        try:
+            available = list(genai.list_models())
+            supported = [
+                m for m in available
+                if "generateContent" in getattr(m, "supported_generation_methods", [])
+            ]
+            for m in supported:
+                try:
+                    gm = genai.GenerativeModel(m.name)
+                    _ = gm.generate_content("ping")
+                    return gm
+                except Exception:
+                    continue
+        except Exception as e:
+            print("⚠️ Could not list models:", e)
+        return None
+
+    try:
+        gemini_model = pick_model()
+        if gemini_model:
+            print("✅ Gemini model loaded successfully")
+        else:
+            print("⚠️ No suitable Gemini model found — AI features disabled")
+    except Exception as e:
+        print("❌ Gemini failed to initialize:", e)
+        gemini_model = None
 
 # Prefer modern, widely-available models; fall back dynamically
 PREFERRED_MODELS = [
