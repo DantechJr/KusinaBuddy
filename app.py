@@ -149,6 +149,10 @@ def generate():
     if not query:
         return jsonify({"result": "⚠️ Please enter an ingredient or dish name."})
 
+    # ✅ Check if AI model is available
+    if not gemini_model:
+        return jsonify({"result": "❌ AI model is not available. Check your API key or model configuration."})
+
     try:
         prompt = f"""
 Create a clear, step-by-step recipe using: {query}.
@@ -159,12 +163,11 @@ Include:
 - Instructions (numbered)
 - Estimated cooking time
 - Servings
-- Total price per batch in Pesos currency
+- Total price per batch
 - Calorie estimate
 
 Do not add disclaimers.
 """
-
         response = gemini_model.generate_content(SYSTEM_RULES + prompt)
 
         recipe = getattr(response, "text", None)
@@ -183,6 +186,7 @@ Do not add disclaimers.
 
     except Exception as e:
         return jsonify({"result": f"❌ Error generating recipe: {str(e)}"})
+    
 # Weekly plan (ingredient-based)
 @app.route("/weekplan", methods=["POST"])
 def weekplan():
@@ -192,13 +196,18 @@ def weekplan():
     if not ingredients:
         return jsonify({"plan": "⚠️ Please enter some ingredients for the weekly plan."})
 
+    # ✅ Check if AI model is available
+    if not gemini_model:
+        return jsonify({"plan": "❌ AI model is not available. Check your API key or model configuration."})
+
     try:
-        response = gemini_model.generate_content(
-            f"Create a Filipino 7-day weekly meal plan using these ingredients: {ingredients}.\n"
-            "For each day (Monday–Sunday), include breakfast, lunch, and dinner recipes. "
-            "Each recipe should have a title, ingredients with quantities and price per ingredients, and short instructions. "
-            "At the end, add one helpful cooking or nutrition tip for the week."
-        )
+        prompt = f"""
+Create a 7-day weekly meal plan using these ingredients: {ingredients}.
+
+Include breakfast, lunch, and dinner for each day.
+Provide title, ingredients with quantities and price, and short instructions.
+"""
+        response = gemini_model.generate_content(SYSTEM_RULES + prompt)
 
         plan = getattr(response, "text", None)
         if not plan:
@@ -216,7 +225,6 @@ def weekplan():
 
     except Exception as e:
         return jsonify({"plan": f"❌ Error generating weekly plan: {str(e)}"})
-
 
 @app.route("/health")
 def health():
