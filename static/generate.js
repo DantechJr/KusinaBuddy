@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   const generateBtn = document.querySelector(
-    ".btn.btn-outline-success.me-md-2"
+    ".btn.btn-outline-success.me-md-2",
   );
   const weekPlanBtn = document.querySelector(
-    ".btn.btn-outline-success:nth-child(2)"
+    ".btn.btn-outline-success:nth-child(2)",
   );
   const resetBtn = document.querySelector(
-    ".btn.btn-outline-success:nth-child(3)"
+    ".btn.btn-outline-success:nth-child(3)",
   );
   const inputBox = document.getElementById("generateBox");
   const outputArea = document.getElementById("FormControlTextarea1");
@@ -59,3 +59,49 @@ document.addEventListener("DOMContentLoaded", () => {
     outputArea.value = "";
   });
 });
+
+// loading spinner CSS
+// const generateBtn = document.getElementById("generateBtn");
+// const weekBtn = document.getElementById("weekBtn");
+// const resetBtn = document.getElementById("resetBtn");
+// const loading = document.getElementById("loading");
+// const textarea = document.getElementById("FormControlTextarea1");
+// const input = document.getElementById("generateBox");
+
+// async function callAI(endpoint, payload, resultKey) {
+//   try {
+//     loading.style.display = "block";
+//     textarea.value = "";
+
+//     await new Promise((r) => setTimeout(r, 100));
+
+//     const res = await fetch(endpoint, {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(payload),
+//     });
+
+//     const data = await res.json();
+//     textarea.value = data[resultKey];
+//   } catch (err) {
+//     textarea.value = "Something went wrong 😢";
+//     console.error(err);
+//   } finally {
+//     loading.style.display = "none";
+//   }
+// }
+
+// generateBtn.addEventListener("click", async () => {
+//   await callAI("/generate", { query: input.value }, "recipe");
+// });
+
+// weekBtn.addEventListener("click", async () => {
+//   await callAI("/weekplan", { query: input.value }, "week_plan");
+// });
+
+// resetBtn.addEventListener("click", () => {
+//   textarea.value = "";
+//   input.value = "";
+// });

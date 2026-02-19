@@ -13,6 +13,13 @@ STRICT LANGUAGE RULES:
 - Never use Filipino or Tagalog.
 - Even if ingredients are written in another language, translate internally but output English.
 - Use clean formatting.
+
+STRICT CURRENCY RULES:
+- All prices MUST be in Philippine Peso (₱).
+- Never use dollars ($) or other currencies.
+- Assume ingredients are bought in a Philippine local market.
+- Provide realistic Filipino market prices.
+
 """
 
 # ---------------------------------------------
