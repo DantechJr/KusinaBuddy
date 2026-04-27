@@ -1,20 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Kusina Buddy</title>
-    <link
-      rel="icon"
-      type="image/png"
-      href="{{ url_for('static', filename='media files/iconRobo2.png') }}"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="{{ url_for('static', filename='media files/iconRobo2.png') }}"
-    />
-
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='style.css') }}"
@@ -27,29 +16,151 @@
       crossorigin="anonymous"
     />
   </head>
-  <body
-    class="landingBg container d-flex justify-content-center align-items-center vh-100"
-  >
-    <div class="landingLogo py-5 px-3 text-center rounded-3">
-      <div class="container-fluid mx-auto">
-        <a class="navbar-brand" href="{{ url_for('welcome') }}">
-          <img
-            src="{{ url_for('static', filename='media files/logo.png') }}"
-            alt="Logo"
-            width="70%"
-            height="70%"
-          />
-        </a>
 
-        <p class="col-lg-8 mx-auto fs-5 text-light">
-          Healthy options in just one click!
-        </p>
-        <div class="glow-on-hover d-inline-flex">
-          <a
-            href="{{ url_for('home') }}"
-            class="btn mx-auto w-100 py-2 text-white"
-            >GENERATE NOW</a
-          >
+  <body>
+    <div class="container vh-100 col-xxl-8 px-4 my-5 py-5">
+      <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="col-10 col-sm-12 col-lg-6 px-auto">
+          <img
+            src="{{ url_for('static', filename='media files/iconRobo2.png') }}"
+            class="d-block mx-lg-auto img-fluid"
+            alt="robo icon"
+            width="700"
+            height="500"
+            loading="lazy"
+          />
+        </div>
+        <div class="col-lg-6 text-center">
+          <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
+            Welcome to Kusina Buddy!
+          </h1>
+          <p class="lead">
+            Your personal cooking assistant. Let's get started on your culinary
+            journey!
+          </p>
+          <div class="d-grid gap-2 d-md-flex justify-content-center">
+            <a
+              href="{{ url_for('home') }}"
+              class="btn btn-outline-success btn-lg px-4 me-sm-3 fw-bold"
+              >Get Started</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-body-tertiary text-center py-5 px-5">
+      <h1 class="fs-1">SERVICES</h1>
+      <h3>Tailored Recipe Generation</h3>
+      <h5 class="mx-5">
+        Experience the convenience of our AI-powered recipe generation tailored
+        to your available ingredients. Whether you're cooking for yourself or
+        for a gathering, Kusina Buddy ensures you have a delightful culinary
+        experience with every meal.
+      </h5>
+    </div>
+
+    <div class="py-5 bg-body-tertiary">
+      <div class="d-flex justify-content-center row">
+        <div
+          class="text-bg-dark col-sm-12 col-md-6 col-lg-6 py-5 text-center overflow-hidden"
+        >
+          <div class="my-3 py-3">
+            <h2 class="display-5">Ingredient Flexibility</h2>
+            <h3 class="lead">Recipes Based on What You Have</h3>
+            <p>
+              Our service allows you to input any available ingredients, and we
+              will generate creative recipes that utilize what you already have,
+              reducing waste and optimizing your cooking.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="bg-body-tertiary col-sm-12 col-md-6 col-lg-6 py-5 text-center overflow-hidden"
+        >
+          <div class="my-3 p-3">
+            <h2 class="display-5">Nutritional Insights</h2>
+            <h3 class="lead">Calorie Counts and More</h3>
+            <p>
+              Alongside delicious recipes, we provide detailed nutritional
+              information, including calorie counts, ensuring you can enjoy your
+              meals while keeping track of your dietary goals.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center row">
+        <div
+          class="bg-body-tertiary col-sm-12 col-md-6 col-lg-6 py-5 text-center overflow-hidden"
+        >
+          <div class="my-3 p-3">
+            <h2 class="display-5">User-Friendly Experience</h2>
+            <h3 class="lead">Cook with Confidence</h3>
+            <p>
+              Our intuitive interface makes it easy for anyone to generate
+              recipes, regardless of cooking experience. With Kusina Buddy,
+              cooking becomes a stress-free and enjoyable experience.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="text-bg-dark col-sm-12 col-md-6 col-lg-6 py-5 text-center overflow-hidden"
+        >
+          <div class="my-3 py-3">
+            <h2 class="display-5">Creative Recipe Ideas</h2>
+            <h3 class="lead">Explore Culinary Creativity</h3>
+            <p>
+              Dive into a world of creative culinary ideas with Kusina Buddy.
+              Our app doesn't just offer recipes; it inspires you to explore new
+              flavors and techniques in your cooking journey.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center my-5 py-5">
+      <h1>Why Kusina Buddy?</h1>
+      <h3>Discover the Difference</h3>
+      <p class="mx-5">
+        Kusina Buddy is an innovative AI Recipe Generator web-based app designed
+        to transform your cooking experience. By simply inputting the
+        ingredients you have on hand, our app generates a variety of specific
+        recipes, complete with step-by-step instructions, ingredient lists, and
+        even cost breakdowns. Unlike traditional search engines or generic AI,
+        Kusina Buddy offers precise and tailored culinary solutions to help you
+        create delicious meals effortlessly.
+      </p>
+      <img
+        src="{{ url_for('static', filename='media files/kbComparison2.png') }}"
+        alt=""
+        style="object-fit: cover; height: auto; max-width: 100%"
+      />
+    </div>
+
+    <div class="bg-body-tertiary text-secondary px-4 py-5 text-center">
+      <div class="py-5">
+        <h1 class="display-5 fw-bold text-dark">Generate Now!</h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="fs-5 mb-4">
+            A recipe generator is an AI-powered tool that uses user inputs, such
+            as available ingredients, dietary requirements, and preferences, to
+            create custom recipes. It then employs algorithms to produce
+            distinctive, detailed instructions, assisting users in reducing food
+            waste and discovering new dishes.
+          </p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a
+              href="{{ url_for('home') }}"
+              type="button"
+              class="btn btn-outline-success btn-lg px-4 me-sm-3 fw-bold"
+            >
+              Generate Now
+            </a>
+          </div>
         </div>
       </div>
     </div>

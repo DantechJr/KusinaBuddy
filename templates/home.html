@@ -26,7 +26,6 @@
     <div id="top"></div>
 
     <!---------------------- navbar ----------------------->
-
     <header>
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid navCon mx-3">
@@ -90,105 +89,110 @@
 
     <main class="homeBg" style="padding-top: 100px">
       <!------------------------ header --------------------->
-      <div class="px-4 pt-5 text-center">
-        <h1 class="display-5 fw-bold text-body-emphasis">
-          Welcome to Kusina Buddy
-        </h1>
-        <p class="display-6 text-body-emphasis">
-          Cook Smarter With AI. Use What You Have
-        </p>
-      </div>
-
-      <!-------------------------- logo and Generator form --------------------->
-      <div class="row d-flex pb-5 mx-5">
+      <!-- <div class="row d-flex mx-5">
         <div
-          class="col-lg-6 col-md-6 col-sm-12 d-flex flex-column justify-content-center align-items-center"
+          class="col-lg-3 col-md-3 col-sm-12 d-flex flex-column justify-content-center"
         >
-          <!---------------- Logo ------------------->
-          <div class="row">
-            <div
-              class="col-lg-6 col-md-6 col-sm-12 d-flex flex-column justify-content-center align-items-center"
-            >
-              <img
-                src="{{ url_for('static', filename='media files/iconRobo2.png') }}"
-                alt="Logo"
-                width="100%"
-                height="100%"
-                style="object-fit: cover"
-              />
-            </div>
-            <div
-              class="col-lg-6 col-md-6 col-sm-12 d-flex flex-column justify-content-center align-items-center"
-            >
-              <h2 class="display-5 fw-bold text-body-emphasis">
+          <img
+            src="{{ url_for('static', filename='media files/iconRobo2.png') }}"
+            alt="Logo"
+            width="100%"
+            height="100%"
+            style="object-fit: cover"
+          />
+        </div>
+        <div
+          class="pt-5 col-lg-9 col-md-9 col-sm-12 d-flex flex-column justify-content-center"
+        >
+          <div>
+            <h1 class="display-3 fw-bold text-body-emphasis">
+              Welcome to Kusina Buddy
+            </h1>
+            <p class="display-6 text-body-emphasis">
+              Cook Smarter With AI. Use What You Have
+            </p>
+          </div>
+        </div>
+      </div> -->
+
+      <!--------------------- Generator ---------------------->
+      <div
+        class="d-flex flex-column justify-content-center mb-5 align-items-center mx-auto"
+      >
+        <div class="container">
+          <div class="bordered-box py-5">
+            <div>
+              <h2 class="display-5 fw-bold text-white text-center">
                 What are you cooking today?
               </h2>
-              <p class="text-body-emphasis fs-5">
+            </div>
+            <div
+              class="d-grid gap-2 mx-5 mt-5 d-md-flex justify-content-md-end"
+            >
+              <p class="text-white fs-5 mx-3">
                 Input your ingredients and let Kusina Buddy create a recipe
                 instantly
               </p>
+              <button
+                id="generateBtn"
+                class="btn btn-outline-success me-md-2"
+                type="button"
+              >
+                Single Recipe
+              </button>
+
+              <button
+                id="weekBtn"
+                class="btn btn-outline-success"
+                type="button"
+              >
+                Week Plan Recipe
+              </button>
+              <button
+                id="resetBtn"
+                class="btn btn-outline-success"
+                type="button"
+              >
+                Reset
+              </button>
             </div>
-          </div>
-        </div>
-
-        <!--------------------- Generator ---------------------->
-        <div
-          class="col-lg-6 col-md-6 col-sm-12 d-flex flex-column justify-content-center align-items-center mx-auto"
-        >
-          <div class="container">
-            <div class="bordered-box py-5">
-              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button
-                  id="generateBtn"
-                  class="btn btn-outline-success me-md-2"
-                  type="button"
-                >
-                  Generate
-                </button>
-
-                <button
-                  id="weekBtn"
-                  class="btn btn-outline-success"
-                  type="button"
-                >
-                  Week Plan
-                </button>
-
-                <button
-                  id="resetBtn"
-                  class="btn btn-outline-success"
-                  type="button"
-                >
-                  Reset
-                </button>
+            <form
+              class="row-cols-auto my-3 mx-auto"
+              style="display: flex; align-items: center"
+            >
+              <div class="col-12 mx-auto">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="generateBox"
+                  placeholder="Type here"
+                />
               </div>
-              <form
-                class="row-cols-auto my-3 mx-auto"
-                style="display: flex; align-items: center"
-              >
-                <div class="col-12 mx-auto">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="generateBox"
-                    placeholder="Type here"
-                  />
-                </div>
-              </form>
-              <div class="d-flex col-12 mx-auto mb-3">
-                <textarea
-                  class="form-control flex-grow-1 gentextArea"
-                  id="FormControlTextarea1"
-                >
-                </textarea>
-              </div>
-              <div
-                id="loading"
-                style="display: none; text-align: center; margin-top: 20px"
-              >
+            </form>
+            <div class="d-flex col-12 mx-auto mb-3 position-relative">
+              <textarea
+                class="form-control flex-grow-1 gentextArea"
+                id="FormControlTextarea1"
+              ></textarea>
+
+              <div id="loading" class="spinner-overlay" style="display: none">
                 <div class="spinner"></div>
                 <p>Cooking something delicious... 🍳</p>
               </div>
+              <button
+                id="saveRecipeBtn"
+                class="btn btn-outline-success saverecipeBtn justify-content-end me-3 mt-3"
+                type="button"
+                onclick="saveRecipe()"
+              >
+                <img
+                  src="{{ url_for('static', filename='media files/save.png') }}"
+                  alt="Save Recipe"
+                  width="30"
+                  height="30"
+                />
+                Save
+              </button>
             </div>
           </div>
         </div>
@@ -196,68 +200,6 @@
 
       <!-------------------- modal buttons for notepad and calculator and store finder------------------------>
       <div class="modals">
-        <!------------------ Button trigger modal for Store Finder -------------------->
-        <div class="container">
-          <button
-            type="button"
-            class="btn storeFinderBtn"
-            data-bs-toggle="modal"
-            data-bs-target="#staticBackdrop0"
-          >
-            <img
-              src="{{ url_for('static', filename='media files/location.gif') }}"
-              alt=""
-              height="90"
-              width="90"
-              style="object-fit: contain"
-            />
-          </button>
-
-          <!-- Modal -->
-          <div
-            class="modal fade p-5"
-            id="staticBackdrop0"
-            data-bs-backdrop="static"
-            data-bs-keyboard="false"
-            tabindex="-1"
-            aria-labelledby="staticBackdropLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="staticBackdropLabel">
-                    Store Finder (Coming Soon)
-                  </h1>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div class="modal-body mx-2 text-center">
-                  <div class="container mx-auto">
-                    <img
-                      src="{{ url_for('static', filename='media files/storeFinder.gif') }}"
-                      alt=""
-                      height="250"
-                      width="250"
-                      style="object-fit: cover"
-                    />
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <div class="controls">
-                    <button class="btn btn-secondary">New</button>
-                    <button class="btn btn-outline-success">Find</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <!------------------ Button trigger modal for notepad -------------------->
         <div class="container">
           <button
@@ -287,9 +229,9 @@
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="staticBackdropLabel">
-                    Notepad
-                  </h1>
+                  <h2 class="modal-title fs-5" id="staticBackdropLabel">
+                    Task Manager
+                  </h2>
                   <button
                     type="button"
                     class="btn-close"
@@ -299,15 +241,26 @@
                 </div>
                 <div class="modal-body">
                   <div class="container">
-                    <textarea
-                      class="form-control flex-grow-1 notepadTxtarea"
-                      id="text-editor"
-                      placeholder="Start typing here..."
-                    ></textarea>
+                    <div class="input-group">
+                      <input
+                        class="form-control mb-3"
+                        type="text"
+                        id="todo-input"
+                        placeholder="What needs to be done?"
+                      />
+                      <button
+                        class="btn btn-outline-secondary mb-3"
+                        id="add-btn"
+                      >
+                        Add Task
+                      </button>
+                    </div>
+
+                    <ul id="todo-list"></ul>
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <div class="controls">
+                  <!-- <div class="controls">
                     <button
                       class="btn btn-secondary"
                       id="new-btn"
@@ -322,7 +275,7 @@
                     >
                       Save
                     </button>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -420,13 +373,104 @@
             </div>
           </div>
         </div>
+
+        <!------------------ Button trigger modal for BMI Calculator -------------------->
+        <div class="container">
+          <button
+            type="button"
+            class="btn bmiCalculatorBtn"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop0"
+          >
+            <img
+              src="{{ url_for('static', filename='media files/scale.gif') }}"
+              alt=""
+              height="90"
+              width="90"
+              style="object-fit: contain"
+            />
+          </button>
+
+          <!-- Modal -->
+          <div
+            class="modal fade p-5"
+            id="staticBackdrop0"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabindex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                    BMI Calculator
+                  </h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body bmiBody text-center">
+                  <div class="bmiCalculator">
+                    <div class="bmi-card">
+                      <div class="inputBmi">
+                        <label for="weight">Weight (kg)</label>
+                        <input
+                          type="number"
+                          id="weight"
+                          placeholder="e.g. 70"
+                        />
+                      </div>
+
+                      <div class="inputBmi">
+                        <label for="height">Height (cm)</label>
+                        <input
+                          type="number"
+                          id="height"
+                          placeholder="e.g. 175"
+                        />
+                      </div>
+
+                      <button id="calc-btn" class="calc-btn mt-4">
+                        Calculate
+                      </button>
+
+                      <div class="result-container" id="result-box">
+                        <span id="bmi-value">0.0</span>
+                        <p id="bmi-status">Enter your details</p>
+                      </div>
+
+                      <div class="category-grid">
+                        <div class="cat" id="under">Underweight</div>
+                        <div class="cat" id="normal">Normal</div>
+                        <div class="cat" id="over">Overweight</div>
+                        <div class="cat" id="obese">Obese</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <div class="controls">
+                    <button class="btn btn-secondary" id="reset-btn">
+                      Reset
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
 
     <!------------------- Footer -------------------->
     <footer class="footer">
       <p class="mx-3"></p>
-      <a href="#top" style="text-decoration: none">
+      <a id="topLink" href="#top" style="text-decoration: none">
         <figure class="mx-3">
           <img
             src="../static/media files/up2.gif"
@@ -448,5 +492,13 @@
 
     <script src="{{ url_for('static', filename='generate.js') }}?v=1"></script>
     <script src="{{ url_for('static', filename='index.js') }}?v=1"></script>
+
+    <script>
+      const topLink = document.getElementById("topLink");
+      topLink?.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.getElementById("top")?.scrollIntoView({ behavior: "smooth" });
+      });
+    </script>
   </body>
 </html>

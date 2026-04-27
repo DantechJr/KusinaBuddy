@@ -1,3 +1,9 @@
+:root {
+  --primary: #6366f1;
+  --text: #1f2937;
+  --card-bg: #ffffff;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -20,6 +26,10 @@ body {
 body {
   display: flex;
   flex-direction: column;
+  background: url("/static/media files/WPwhite.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 main {
@@ -96,7 +106,7 @@ header {
 
 /* --------------------------Landing Page start------------------ */
 .landingBg {
-  background: url("/static/media files/bg.jpg");
+  background: url("/static/media files/WPwhite.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -191,7 +201,7 @@ header {
 
 /* --------------------------Home Page start------------------ */
 .homeBg {
-  background: url("/static/media files/homeBg.jpg");
+  background: url("/static/media files/WPwhite.jpg");
   background-size: cover;
   object-fit: cover;
   background-position: center;
@@ -210,7 +220,7 @@ header {
 /* --------------------------Contact Page start------------------ */
 
 .contactBg {
-  background: url("/static/media files/bg7.jpg");
+  background: url("/static/media files/WPwhite.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -228,13 +238,13 @@ header {
 
 .gentextArea {
   /* Set the desired maximum height */
-  max-height: 200px; /* You can use any unit: px, em, rem, etc. */
+  max-height: 1000px; /* You can use any unit: px, em, rem, etc. */
 
   /* Ensure vertical scrollbars appear automatically when needed */
   overflow-y: auto;
 
   /* Optional: You can also set a default height for when content is short */
-  height: 250px;
+  height: 500px;
 
   /* Optional: other styling like width, padding, border etc. */
   width: 100%;
@@ -242,21 +252,42 @@ header {
   box-sizing: border-box; /* Ensures padding/border are included in the width */
 }
 
-/* .spinner {
+.spinner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.spinner {
   width: 50px;
   height: 50px;
   border: 6px solid #e0e0e0;
   border-top: 6px solid #198754;
   border-radius: 50%;
   animation: spin 1s linear infinite;
-  margin: auto;
 }
 
 @keyframes spin {
   100% {
     transform: rotate(360deg);
   }
-} */
+}
+
+.saverecipeBtn {
+  position: absolute;
+  z-index: 1500;
+  right: 0;
+}
 
 /* ----------------------------Generator end------------------------ */
 
@@ -282,27 +313,153 @@ header {
 
 /* --------------------------Notepad end------------------ */
 
-/* --------------------------Store finder start------------------ */
+/* --------------------------BMI Calculator start------------------ */
 
-.storeFinderBtn {
+.bmiCalculatorBtn {
   position: fixed;
-  bottom: 40px;
+  bottom: 220px;
   left: 0;
   z-index: 1500;
   opacity: 0.5;
   transition: opacity 0.3 ease;
 }
 
-.storeFinderBtn:hover {
+.bmiCalculatorBtn:hover {
   opacity: 1;
 }
-/* --------------------------Store finder end------------------ */
+
+.bmiCalculator {
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  margin: 0;
+}
+
+.bmi-card {
+  background: var(--card-bg);
+  padding: 2rem;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  width: 350px;
+  text-align: center;
+}
+
+/* Task Manager Styles */
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px; /* Adds space between elements */
+  margin-bottom: 10px; /* Space between tasks */
+}
+
+.task-text {
+  flex-grow: 10; /* Allows the task text to take up remaining space */
+}
+
+.edit-btn,
+.delete-btn {
+  margin: 0; /* Removes vertical margins from buttons to prevent stacking */
+  padding: 4px 8px;
+  font-size: 0.875rem;
+}
+
+input[type="checkbox"] {
+  width: 16px; /* Ensures consistent checkbox size */
+  height: 16px; /* Matches button height roughly */
+  margin: 0; /* Removes default margins */
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-sizing: border-box;
+  outline-color: var(--primary);
+}
+
+.calc-btn {
+  width: 100%;
+  background: var(--primary);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s;
+}
+
+.calc-btn:active {
+  transform: scale(0.98);
+}
+
+.result-container {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 12px;
+}
+
+#bmi-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  display: block;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 1.5rem;
+}
+
+.cat {
+  padding: 8px;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  background: #f3f4f6;
+  color: #9ca3af;
+  transition: all 0.3s ease;
+}
+
+/* Active States */
+.active-under {
+  background: #fef3c7;
+  color: #92400e;
+  font-weight: bold;
+  border: 1px solid #f59e0b;
+}
+.active-normal {
+  background: #dcfce7;
+  color: #166534;
+  font-weight: bold;
+  border: 1px solid #22c55e;
+}
+.active-over {
+  background: #fee2e2;
+  color: #991b1b;
+  font-weight: bold;
+  border: 1px solid #ef4444;
+}
+.active-obese {
+  background: #7f1d1d;
+  color: white;
+  font-weight: bold;
+}
+/* --------------------------BMI Calculator end------------------ */
 
 /* ------------------------ Calculator CSS Start ----------------------- */
 
 .calculatorBtn {
   position: fixed;
-  bottom: 220px;
+  bottom: 40px;
   z-index: 1500;
   left: 0;
   opacity: 0.5;

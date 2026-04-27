@@ -1,16 +1,10 @@
 // -------------------------------- Generator Form Script Start -------------------------------------------//
 document.addEventListener("DOMContentLoaded", () => {
-  const generateBtn = document.querySelector(
-    ".btn.btn-outline-success.me-md-2"
-  );
+  const generateBtn = document.getElementById("generateBtn");
 
-  const weekPlanBtn = document.querySelector(
-    ".btn.btn-outline-success:nth-child(2)"
-  );
+  const weekPlanBtn = document.getElementById("weekBtn");
 
-  const resetBtn = document.querySelector(
-    ".btn.btn-outline-success:nth-child(3)"
-  );
+  const resetBtn = document.getElementById("resetBtn");
 
   const inputBox = document.getElementById("generateBox");
   const outputArea = document.getElementById("FormControlTextarea1");
@@ -110,7 +104,7 @@ if (btn && form) {
       (err) => {
         btn.value = "Send Email";
         alert(JSON.stringify(err));
-      }
+      },
     );
   });
 }
@@ -152,18 +146,174 @@ function calculate() {
 
 // ---------------------------------------- Notepad Script Start--------------- -------------------//
 
-function saveFile() {
-  // Get the content from the text area
-  const content = document.getElementById("text-editor").value;
+// --- State Management ---
+let tasks = JSON.parse(localStorage.getItem("myTasks")) || [];
 
-  // Create a Blob (Binary Large Object) containing the text data
+const input = document.getElementById("todo-input");
+const addBtn = document.getElementById("add-btn");
+const todoList = document.getElementById("todo-list");
+
+// --- Core Functions ---
+
+function saveAndRender() {
+  localStorage.setItem("myTasks", JSON.stringify(tasks));
+  render();
+}
+
+function addTask() {
+  const text = input.value.trim();
+  if (!text) return;
+
+  const newTask = {
+    id: Date.now(),
+    text: text,
+    completed: false,
+  };
+
+  tasks.push(newTask);
+  input.value = "";
+  saveAndRender();
+}
+
+function deleteTask(id) {
+  tasks = tasks.filter((task) => task.id !== id);
+  saveAndRender();
+}
+
+function toggleTask(id) {
+  tasks = tasks.map((task) =>
+    task.id === id ? { ...task, completed: !task.completed } : task,
+  );
+  saveAndRender();
+}
+
+function editTask(id) {
+  const task = tasks.find((t) => t.id === id);
+  const newText = prompt("Edit your task:", task.text);
+
+  if (newText !== null && newText.trim() !== "") {
+    task.text = newText.trim();
+    saveAndRender();
+  }
+}
+
+// --- DOM Rendering ---
+
+function render() {
+  todoList.innerHTML = "";
+
+  tasks.forEach((task) => {
+    const li = document.createElement("li");
+    li.className = "task-item";
+
+    li.innerHTML = `
+                <input type="checkbox" ${task.completed ? "checked" : ""} 
+                    onclick="toggleTask(${task.id})">
+                <span class="task-text ${task.completed ? "completed" : ""}">${
+                  task.text
+                }</span>
+                <button class="edit-btn btn btn-outline-success ms-5  my-2" onclick="editTask(${
+                  task.id
+                })">Edit</button>
+                <button class="delete-btn btn btn-outline-danger  my-2" onclick="deleteTask(${
+                  task.id
+                })">Delete</button>
+            `;
+    todoList.appendChild(li);
+  });
+}
+
+// --- Event Listeners ---
+
+addBtn.addEventListener("click", addTask);
+
+input.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") addTask();
+});
+
+// Initial load
+render();
+
+// -------------------------------------- Notepad Script End -------------------------------------//
+
+//---------------------------------------- BMI Calculator Script Start ----------------------------------//
+
+function calculateBMI() {
+  const weight = document.getElementById("weight").value;
+  const height = document.getElementById("height").value / 100;
+
+  if (weight > 0 && height > 0) {
+    const bmi = (weight / (height * height)).toFixed(1);
+    document.getElementById("bmi-value").innerText = bmi;
+    updateUI(bmi);
+  } else {
+    alert("Please enter valid positive numbers!");
+  }
+}
+
+// 2. The UI Logic
+function updateUI(bmi) {
+  document.querySelectorAll(".cat").forEach((el) => {
+    el.className = "cat";
+  });
+
+  let status = "";
+  if (bmi < 18.5) {
+    status = "Underweight";
+    document.getElementById("under").classList.add("active-under");
+  } else if (bmi >= 18.5 && bmi <= 24.9) {
+    status = "Normal Weight";
+    document.getElementById("normal").classList.add("active-normal");
+  } else if (bmi >= 25 && bmi <= 29.9) {
+    status = "Overweight";
+    document.getElementById("over").classList.add("active-over");
+  } else {
+    status = "Obese";
+    document.getElementById("obese").classList.add("active-obese");
+  }
+  document.getElementById("bmi-status").innerText = status;
+}
+
+// Reset function to clear inputs and results
+function resetBMI() {
+  document.getElementById("weight").value = "";
+  document.getElementById("height").value = "";
+  document.getElementById("bmi-value").innerText = "0.0";
+  document.getElementById("bmi-status").innerText = "Enter your details";
+  document.querySelectorAll(".cat").forEach((el) => {
+    el.className = "cat"; // Remove all active classes
+  });
+}
+
+// 3. THE FIX: Move this OUTSIDE the functions
+// This tells the browser: "The moment you load, start watching for clicks on this button."
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("calc-btn").addEventListener("click", calculateBMI);
+  document.getElementById("reset-btn").addEventListener("click", resetBMI);
+});
+
+//------------------------------------------------ BMI Calculator Script End ----------------------------------//
+
+// ---------------------------------------- Save Recipe Script Start --------------------------------//
+
+function saveRecipe() {
+  // Get the content from the recipe textarea
+  const content = document.getElementById("FormControlTextarea1").value;
+
+  // Check if there's content to save
+  if (!content.trim()) {
+    alert("No recipe to save. Generate a recipe first!");
+    return;
+  }
+
+  // Create a Blob containing the recipe text
   const blob = new Blob([content], { type: "text/plain" });
 
   // Create a temporary link element
   const a = document.createElement("a");
 
   // Set the download filename and link the blob to the download URL
-  a.download = "notes.txt";
+  a.download = "recipe.txt";
   a.href = URL.createObjectURL(blob);
 
   // Append the link to the body (required for Firefox)
@@ -176,13 +326,7 @@ function saveFile() {
   document.body.removeChild(a);
   URL.revokeObjectURL(a.href);
 
-  alert("File saved as notes.txt");
+  alert("Recipe saved as recipe.txt");
 }
 
-function newFile() {
-  // Clear the text area
-  document.getElementById("text-editor").value = "";
-  alert("New document created.");
-}
-
-// -------------------------------------- Notepad Script End -------------------------------------//
+// ---------------------------------------- Save Recipe Script End ----------------------------------//

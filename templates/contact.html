@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -227,7 +227,7 @@
 
     <footer class="footer">
       <p class="mx-3"></p>
-      <a href="#top" style="text-decoration: none">
+      <a id="topLink" href="#top" style="text-decoration: none">
         <figure class="mx-3">
           <img
             src="../static/media files/up2.gif"
@@ -240,6 +240,17 @@
         </figure>
       </a>
     </footer>
+
+    <script>
+      document
+        .getElementById("topLink")
+        ?.addEventListener("click", function (e) {
+          e.preventDefault();
+          document
+            .getElementById("top")
+            ?.scrollIntoView({ behavior: "smooth" });
+        });
+    </script>
 
     <script
       type="text/javascript"
